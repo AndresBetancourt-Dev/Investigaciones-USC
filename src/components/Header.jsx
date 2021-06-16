@@ -8,7 +8,7 @@ const HeaderContainer = styled.header`
     height : auto;
     background-color : ${Colors.blue};
     display : flex;
-    padding : 1em;
+    padding : 1vw;
 `;
 
 

@@ -7,7 +7,9 @@ const MAIN_URL = "https://investigaciones.usc.edu.co/index.php/direccion-general
 
 const HomeContainer = styled.section`
     padding : 1em;
-    display : block;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
 `;
 
 const GridButtonsContainer = styled.div`
@@ -16,7 +18,7 @@ const GridButtonsContainer = styled.div`
     gap : 0.25em;
     margin-bottom : 1em;
 
-    @media (max-width: 768px){
+    @media (max-width: 500px){
         grid-template-columns : 1fr;
     }
 `;
