@@ -119,7 +119,7 @@ const DirectorCard = ({image,title,subtitle,content,subcontent,phone,extension,c
 
     return (
         <Director>
-            <DirectorImage src={image} alt={title}>
+            <DirectorImage src={image} alt={title} rel="preload">
             </DirectorImage>
             <DirectorInformation>
                 <DirectorTitle>
