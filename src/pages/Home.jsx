@@ -64,14 +64,14 @@ const Home = () => {
             <GridButtonsContainer>
             {
             gridButtons.map(({title,link}) =>  (
-                    <Button href={link}>{title}</Button>
+                    <Button href={link} target="_blank" rel="noreferrer" >{title}</Button>
             ))
             }
             </GridButtonsContainer>
             <ColumnButtonsContainer>
-                <Button href={`${MAIN_URL}/solicitudes`}>Solicitudes</Button>
-                <Button href={`${MAIN_URL}/formatos`}>Lista de Formatos</Button>
-                <Button href="https://convocatoriasdgi.usc.edu.co/login">Sistema de Investigación</Button>
+                <Button href={`${MAIN_URL}/solicitudes`} target="_blank" rel="noreferrer">Solicitudes</Button>
+                <Button href={`${MAIN_URL}/formatos`} target="_blank" rel="noreferrer">Lista de Formatos</Button>
+                <Button href="https://convocatoriasdgi.usc.edu.co/login" target="_blank" rel="noreferrer">Sistema de Investigación</Button>
             </ColumnButtonsContainer>
             </Card>
             
