@@ -34,7 +34,7 @@ const DirectorTitle = styled.h2`
     font-size : 2vw;
 
     @media (max-width: 1050px){
-        font-size : 2.5vw;
+        font-size : 3.5vw;
     }
 
     @media (max-width: 500px){
@@ -47,7 +47,7 @@ const DirectorSubtitle = styled.h4`
     font-size : 1.5vw;
 
     @media (max-width: 1050px){
-        font-size : 2vw;
+        font-size : 3vw;
     }
 
     @media (max-width: 500px){
@@ -62,7 +62,7 @@ const DirectorContent = styled.div`
     font-size : 1vw;
 
     @media (max-width: 1050px){
-        font-size : 1.5vw;
+        font-size : 2vw;
     }
 
     @media (max-width: 500px){
@@ -77,7 +77,7 @@ const DirectorSubContent = styled.div`
     font-size : 1vw;
 
     @media (max-width: 1050px){
-        font-size : 1.5vw;
+        font-size : 2vw;
     }
 
     @media (max-width: 500px){
@@ -92,10 +92,6 @@ const DirectorContact = styled.div`
     font-size : 1vw;
 
     @media (max-width: 1050px){
-        font-size : 1.5vw;
-    }
-
-    @media (max-width: 650px){
         font-size : 2vw;
     }
 

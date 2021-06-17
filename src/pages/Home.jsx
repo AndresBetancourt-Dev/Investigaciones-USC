@@ -69,9 +69,9 @@ const Home = () => {
             }
             </GridButtonsContainer>
             <ColumnButtonsContainer>
-                <Button href="/solicitudes">Solicitudes</Button>
-                <Button href="/convocatorias">Lista de Formatos</Button>
-                <Button href="/convocatorias">Sistema de Investigación</Button>
+                <Button href={`${MAIN_URL}/solicitudes`}>Solicitudes</Button>
+                <Button href={`${MAIN_URL}/formatos`}>Lista de Formatos</Button>
+                <Button href="https://convocatoriasdgi.usc.edu.co/login">Sistema de Investigación</Button>
             </ColumnButtonsContainer>
             </Card>
             
