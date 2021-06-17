@@ -131,7 +131,7 @@ const DirectorCard = ({image,title,subtitle,content,subcontent,phone,extension,c
                     {lineBreak(subcontent)}
                 </DirectorSubContent>
                 <DirectorContact>
-                    <a href={cvlac}>CvLAC</a>
+                    <a href={cvlac} target="_blank" rel="noreferrer">CvLAC</a>
                     <div>{phone}</div>
                     <div>{extension}</div>
                 </DirectorContact>
