@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-    background-color: white;
+    background: ${props => props.background};
     padding: 25px;
     width : 100%;
     text-align: justify;
     margin: 1em 0px;
     font-size : 1vw;
     font-weight: 300;
-    box-shadow: 1px 1px 10px 0.5px rgb(0 0 0 / 50%);
+    box-shadow: ${props => props.boxShadow};
     border-radius: 2px;
 
     @media (max-width: 1050px){
@@ -24,4 +24,9 @@ export const Card = styled.div`
     }
 `;
 
+
+Card.defaultProps = {
+    boxShadow: '1px 1px 10px 0.5px rgb(0 0 0 / 50%)',
+    background: 'white',
+}
 
