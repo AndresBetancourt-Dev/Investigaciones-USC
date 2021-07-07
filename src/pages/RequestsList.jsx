@@ -8,8 +8,8 @@ import { Colors } from '../styles/Colors';
 import Arrow from "../assets/images/requests/arrow.png";
 
 const SolicitudesButton = styled.button`
-    width : 5vw;
-    height : 5vw;
+    width : 10vw;
+    height : 10vw;
     outline : none;
     border : none;
     display : flex;
@@ -17,11 +17,27 @@ const SolicitudesButton = styled.button`
     align-items : center;
     background : ${Colors.blue};
     cursor : pointer;
+    
+    @media (max-width: 500px){
+     width : 15vw;
+     height : 15vw;
+    }
 `;
 
 const SolicitudesBack = styled.img`
     width : 100%;
     height : 100%;
+
+    @media (max-width: 500px){
+    padding : 0;
+    margin : 0;
+    }
+`;
+
+const SolicitudesList = styled.ul`
+   @media (max-width: 500px){
+    padding : 0;
+   }
 `;
 
 const SolicitudesItem = styled.li`
@@ -36,6 +52,10 @@ const SolicitudesItem = styled.li`
         text-decoration : none;
         font-weight : 700;
     }
+
+    @media (max-width: 500px){
+        font-size: 4vw;
+    }
 `;
 
 const RequestsList = () => {
@@ -49,7 +69,7 @@ const RequestsList = () => {
                     <SolicitudesBack src={Arrow} alt="Atrás">
                     </SolicitudesBack>
                 </SolicitudesButton>
-                <ul>
+                <SolicitudesList>
                     {requestsContent[section].map(({title,url})=> {
                         return (
                             <SolicitudesItem key={title}>
@@ -58,7 +78,7 @@ const RequestsList = () => {
                             
                         )
                     })}
-                </ul>
+                </SolicitudesList>
             </Card>
         </SolicitudesContainer>
             

@@ -14,6 +14,12 @@ const GridSolicitudes = styled.section`
     grid-template-rows : repeat(2,1fr);
     justify-items : center;
     padding : 2em;
+
+    @media (max-width: 500px){
+        display : flex;
+        flex-direction : column;
+        align-items : center;
+    }
 `;
 
 const SolicitudesButton = styled(Link)`
