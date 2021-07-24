@@ -1,42 +1,48 @@
-:root{
-  --main-color : #014087;
+@import "./assets/fonts/GTWalsheim/stylesheet.css";
+
+:root {
+  --main-color: #014087;
+}
+
+html {
+  height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "GT Walsheim Pro", "Roboto", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 1em;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #ebebeb;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--main-color);
   transition: 0.45s ease-in;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Handle on hover */
