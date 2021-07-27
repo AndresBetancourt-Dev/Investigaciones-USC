@@ -2,6 +2,8 @@ import React from "react";
 import USC_LOGO from "../assets/images/usc-white-logo.png";
 import styled from "styled-components";
 
+/* Styled Components */
+
 const ImageLogo = styled.img`
   width: 5vw;
   height: 5vw;
@@ -11,6 +13,8 @@ const ImageLogo = styled.img`
     height: 2.5em;
   }
 `;
+
+/* Functional Component */
 
 const Logo = ({ logo, url, title }) => {
   return (

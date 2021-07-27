@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
+/* Styled Components */
 
 const SliderContainer = styled.section`
   width: 100%;
@@ -10,6 +12,16 @@ const SliderContainer = styled.section`
   overflow: hidden;
   max-height: 100vh;
   position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: auto;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.375);
+  }
 `;
 
 const Slide = styled.div`
@@ -24,16 +36,6 @@ const Slide = styled.div`
     opacity : 1;
     transition: 0.5s ease-in;
   }
-
-  &::before {
-      content : '';
-      position : absolute;
-      width : 100%;
-      height : 100%;
-      inset : auto;
-      z-index : 5;
-      background : rgba(0,0,0,.375);
-  }
 `;
 
 const SlideImage = styled.img`
@@ -41,6 +43,8 @@ const SlideImage = styled.img`
   height: 100%;
   object-fit: cover;
 `;
+
+/* Functional Component */
 
 const Slider = ({ slides }) => {
   const [current, setCurrent] = useState(0);
@@ -61,9 +65,9 @@ const Slider = ({ slides }) => {
     };
   }, [current, length]);
 
-  // const previousSlide = () => {
-  //   setCurrent(current === 0 ? length - 1 : current - 1);
-  // };
+  const previousSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;

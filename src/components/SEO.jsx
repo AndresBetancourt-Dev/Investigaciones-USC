@@ -1,6 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
+/* Functional Component */
+
 const SEO = ({ title, description }) => {
   return (
     <Helmet>

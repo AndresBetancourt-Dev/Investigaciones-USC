@@ -4,10 +4,10 @@ import { Card } from "../components/Card";
 import DirectorCard from "../components/DirectorCard";
 import { HeaderState } from "../components/Header";
 import SEO from "../components/SEO";
+import { MAIN_URL } from "../constants";
 import { useComponentWillMount } from "../hooks";
 
-const MAIN_URL =
-  "https://investigaciones.usc.edu.co/index.php/direccion-general-de-investgaciones";
+/* Styled Components */
 
 const HomeContainer = styled.section`
   padding: 1em;
@@ -59,6 +59,8 @@ const gridButtons = [
     link: `${MAIN_URL}/convocatorias`,
   },
 ];
+
+/* Functional Component */
 
 const OldHome = () => {
   useComponentWillMount(() => {

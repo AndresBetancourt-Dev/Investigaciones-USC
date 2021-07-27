@@ -2,11 +2,14 @@ import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 /* Pages */
+
 import Convocatorias from "../pages/Convocatorias";
 import Home from "../pages/Home";
 import OldHome from "../pages/OldHome";
 import RequestsList from "../pages/RequestsList";
 import Solicitudes from "../pages/Solicitudes";
+
+/* Functional Component */
 
 const Routes = () => {
   return (

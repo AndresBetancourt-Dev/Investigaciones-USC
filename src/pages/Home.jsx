@@ -3,12 +3,16 @@ import SEO from "../components/SEO";
 import Slider from "../components/Slider";
 import { SliderHome } from "../data/slider/SliderHome";
 
+/* Styled Components */
+
 const HomeContainer = styled.section`
   width: 100%;
   height: 100%;
   min-height: 100vh;
   background-color: white;
 `;
+
+/* Functional Component */
 
 const Home = () => {
   return (

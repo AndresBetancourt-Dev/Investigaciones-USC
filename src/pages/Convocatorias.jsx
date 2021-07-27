@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Convocatorias = () => {
-    return (
-        <div>
-            Convocatorias
-        </div>
-    )
-}
+  return <div>Convocatorias</div>;
+};
 
-export default Convocatorias
+export default Convocatorias;

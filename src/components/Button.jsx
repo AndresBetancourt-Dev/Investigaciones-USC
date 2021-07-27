@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Colors } from "../styles/Colors";
 
+/* Styled Components */
+
 export const Button = styled.a`
   background-color: ${(props) => props.background};
   color: ${(props) => props.color};
@@ -21,6 +23,8 @@ export const Button = styled.a`
     font-size: 4vw;
   }
 `;
+
+/* Default Props */
 
 Button.defaultProps = {
   background: Colors.blue,

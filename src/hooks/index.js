@@ -1,9 +1,9 @@
 import { useRef } from "react";
 
-export const useComponentWillMount = (fn) => {
+export const useComponentWillMount = (callback) => {
   const willMount = useRef(true);
   if (willMount.current) {
-    fn();
+    callback();
   }
   willMount.current = false;
 };
