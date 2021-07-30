@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const SliderContainer = styled.section`
   width: 100%;
-  height: 100%;
+  height: ${(props) => props.elementHeight};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,23 +20,47 @@ const SliderContainer = styled.section`
     height: 100%;
     inset: auto;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.375);
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 500px) {
+    height: ${(props) => props.mobileHeight};
   }
 `;
+
+SliderContainer.defaultProps = {
+  elementHeight: "50vh",
+  mobileHeight: "50vh",
+};
 
 const Slide = styled.div`
   width: 100vw;
-  height: 50vh;
-  position: relative
-  inset: auto;
-  opacity : 0;
+  height: 100%;
+  position: relative;
+  display: grid;
+  opacity: 0;
   transition: 0.5s ease-in;
 
   &.active {
-    opacity : 1;
+    opacity: 1;
     transition: 0.5s ease-in;
   }
 `;
+
+const SlideText = styled.h2`
+  position: absolute;
+  color: white;
+  z-index: 120;
+  display: flex;
+  font-size: 5vw;
+  align-self: ${(props) => props.align};
+  justify-self: ${(props) => props.justify};
+`;
+
+SlideText.defaultProps = {
+  align: "center",
+  justify: "center",
+};
 
 const SlideImage = styled.img`
   width: 100vw;
@@ -46,7 +70,7 @@ const SlideImage = styled.img`
 
 /* Functional Component */
 
-const Slider = ({ slides }) => {
+const Slider = ({ slides, height, mobileHeight }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const timeout = useRef(null);
@@ -74,12 +98,15 @@ const Slider = ({ slides }) => {
   }
 
   return (
-    <SliderContainer>
+    <SliderContainer elementHeight={height} mobileHeight={mobileHeight}>
       {slides.map((slide, index) => {
         return (
           <Slide className={index === current ? "active" : ""} key={index}>
             {index === current ? (
-              <SlideImage src={slide.image} alt={slide.title} />
+              <>
+                <SlideImage src={slide.image} alt={slide.title} />
+                <SlideText>{slide.title}</SlideText>
+              </>
             ) : null}
           </Slide>
         );

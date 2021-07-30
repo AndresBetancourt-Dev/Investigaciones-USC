@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Card } from "../components/Card";
 import SolicitudesContainer from "../components/SolicitudesContainer";
 import { requestsContent } from "../data/requests/requests";
-import { Colors } from "../styles/Colors";
+import { Colors } from "../styles";
 import Arrow from "../assets/images/requests/arrow.png";
 
 /* Styled Components */

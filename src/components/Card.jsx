@@ -1,17 +1,30 @@
 import styled from "styled-components";
+import { Shadows } from "../styles";
 
 /* Styled Components */
 
 export const Card = styled.div`
   background: ${(props) => props.background};
-  padding: 25px;
-  width: 100%;
-  text-align: justify;
-  margin: 1em 0px;
+  padding: ${(props) => props.padding};
+  width: ${(props) => props.elementWidth};
+  text-align: ${(props) => props.textAlign};
+  margin: ${(props) => props.margin};
+  height: ${(props) => props.elementHeight};
   font-size: 1vw;
-  font-weight: 300;
-  box-shadow: ${(props) => props.boxShadow};
-  border-radius: 2px;
+  font-weight: ${(props) => props.elementFontWeight};
+  box-shadow: ${(props) => Shadows[props.boxShadow]};
+  border-radius: ${(props) => (props.rounded ? "10px" : "2.5px")};
+  gap: ${(props) => props.gap};
+
+  ${(props) =>
+    props.hovereable
+      ? `transition: 0.3s ease;
+   &:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: ${Shadows.light};
+  }
+  `
+      : null}
 
   @media (max-width: 1050px) {
     font-size: 1.5vw;
@@ -23,12 +36,40 @@ export const Card = styled.div`
 
   @media (max-width: 500px) {
     font-size: 3.5vw;
+    width: ${(props) => props.mobileWidth};
+    height: ${(props) => props.mobileHeight};
+    max-height: ${(props) => props.mobileMaxHeight};
+    overflow: hidden;
   }
+`;
+
+export const CardImageTop = styled.img`
+  width: ${(props) => props.elementWidth};
+  height: ${(props) => props.elementHeight};
+  border-radius: ${(props) => (props.rounded ? "10px" : "2.5px")};
+  object-fit: cover;
 `;
 
 /* Default Props */
 
 Card.defaultProps = {
-  boxShadow: "1px 1px 10px 0.5px rgb(0 0 0 / 50%)",
+  padding: "1.5em",
+  margin: "1em 0px",
+  elementWidth: "100%",
+  elementHeight: "auto",
+  mobileWidth: "100%",
+  mobileHeight: "auto",
+  mobileMaxHeight: "auto",
+  boxShadow: "normal",
   background: "white",
+  rounded: false,
+  elementFontWeight: "300",
+  textAlign: "justify",
+  hovereable: false,
+};
+
+CardImageTop.defaultProps = {
+  elementWidth: "100%",
+  elementHeight: "80%",
+  rounded: false,
 };

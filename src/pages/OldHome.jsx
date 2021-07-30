@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import DirectorCard from "../components/DirectorCard";
-import { HeaderState } from "../components/Header";
+
 import SEO from "../components/SEO";
 import { MAIN_URL } from "../constants";
 import { useComponentWillMount } from "../hooks";
+import { disableHeader, disableFooter } from "../utils";
 
 /* Styled Components */
 
@@ -64,8 +65,8 @@ const gridButtons = [
 
 const OldHome = () => {
   useComponentWillMount(() => {
-    HeaderState.fixed = false;
-    HeaderState.showMenu = false;
+    disableHeader();
+    disableFooter();
   });
 
   return (

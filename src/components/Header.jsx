@@ -1,14 +1,17 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
-import { Colors } from "../styles/Colors";
+import { Colors, Shadows } from "../styles";
 import { proxy, useSnapshot } from "valtio";
+import Navbar from "./Navbar";
+import { ImMenu as Hamburger } from "react-icons/im";
 
 /* Global Shared State */
 
 export const HeaderState = proxy({
   fixed: true,
   showMenu: true,
+  visible: false,
 });
 
 /* Styled Components */
@@ -18,7 +21,7 @@ const HeaderContainer = styled.header`
   height: auto;
   background-color: ${(props) =>
     props.fixed ? props.background : Colors.blue};
-  color: ${(props) => props.color};
+  color: ${(props) => props.fontColor};
   position: ${(props) => (props.fixed ? "fixed" : "relative")};
   display: flex;
   justify-content: space-between;
@@ -31,7 +34,7 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const NavbarResponsiveMenu = styled.section`
+const NavbarResponsiveMenu = styled.nav`
   display: flex;
   z-index: 100;
   position: absolute;
@@ -42,16 +45,48 @@ const NavbarResponsiveMenu = styled.section`
   transition: 0.3s ease;
   width: 100%;
   height: 100vh;
+  align-items: center;
   background: ${Colors.blue};
 `;
 
 const MenuButton = styled.div`
   width: 5vw;
   height: 5vw;
-  background: white;
+  background: ${(props) => (props.visible ? Colors.blue : "white")};
   border-radius: 100%;
   z-index: 200;
+  padding: 0;
   cursor: pointer;
+  transition: 0.3s ease-in;
+  box-shadow: ${(props) => (props.visible ? Shadows.light : "none")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    font-size: 2.5vw;
+    transition: 0.3s ease-in;
+    color: ${Colors.blue};
+  }
+
+  &:focus {
+    background: ${Colors.blue};
+  }
+
+  & svg.active {
+    transform: rotate(180deg);
+    color: white;
+  }
+
+  @media (max-width: 650px) {
+    width: 7.5vw;
+    height: 7.5vw;
+
+    & svg {
+      font-size: 5vw;
+    }
+  }
+
   @media (max-width: 500px) {
     width: 2.5em;
     height: 2.5em;
@@ -62,17 +97,16 @@ const MenuButton = styled.div`
 
 HeaderContainer.defaultProps = {
   background: "transparent",
-  color: "white",
+  fontColor: "white",
 };
 
 /* Functional Component */
 
 const Header = () => {
   const [navbarIsActive, setNavbarIsActive] = useState(false);
-  const [visibleMenu, setVisibileMenu] = useState(false);
 
   const changeNavbarColor = () => setNavbarIsActive(window.scrollY >= 150);
-  const changeVisibleMenu = () => setVisibileMenu(!visibleMenu);
+  const changeVisibleMenu = () => (HeaderState.visible = !HeaderState.visible);
 
   window.addEventListener("scroll", changeNavbarColor);
 
@@ -84,8 +118,16 @@ const Header = () => {
       fixed={sharedState.fixed}
     >
       <Logo />
-      {sharedState.showMenu ? <MenuButton onClick={changeVisibleMenu} /> : null}
-      <NavbarResponsiveMenu visible={visibleMenu} />
+      {sharedState.showMenu ? (
+        <MenuButton onClick={changeVisibleMenu} visible={sharedState.visible}>
+          <Hamburger
+            className={sharedState.visible ? "active" : ""}
+          ></Hamburger>
+        </MenuButton>
+      ) : null}
+      <NavbarResponsiveMenu visible={sharedState.visible}>
+        <Navbar />
+      </NavbarResponsiveMenu>
     </HeaderContainer>
   );
 };

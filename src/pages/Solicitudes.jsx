@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SolicitudesContainer from "../components/SolicitudesContainer";
-import { Colors } from "../styles/Colors";
+import { Colors } from "../styles";
 import { Link } from "react-router-dom";
 import { requestsContent, requestsImages } from "../data/requests/requests";
 

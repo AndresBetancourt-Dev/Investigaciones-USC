@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import Header from "./Header";
 
 /* Functional Component */
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
     <main>
       <Header />
       {children}
+      <Footer />
     </main>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Layout from "../components/Layout";
 
 /* Pages */
 
@@ -14,14 +15,16 @@ import Solicitudes from "../pages/Solicitudes";
 const Routes = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={OldHome} />
-        <Route exact path="/solicitudes" component={Solicitudes} />
-        <Route exact path="/solicitudes/:section" component={RequestsList} />
-        <Route exact path="/convocatorias" component={Convocatorias} />
-        <Route component={OldHome} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={OldHome} />
+          <Route exact path="/solicitudes" component={Solicitudes} />
+          <Route exact path="/solicitudes/:section" component={RequestsList} />
+          <Route exact path="/convocatorias" component={Convocatorias} />
+          <Route component={Home} />
+        </Switch>
+      </Layout>
     </Router>
   );
 };
