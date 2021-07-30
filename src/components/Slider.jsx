@@ -89,9 +89,9 @@ const Slider = ({ slides, height, mobileHeight }) => {
     };
   }, [current, length]);
 
-  const previousSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+  // const previousSlide = () => {
+  //   setCurrent(current === 0 ? length - 1 : current - 1);
+  // };
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;

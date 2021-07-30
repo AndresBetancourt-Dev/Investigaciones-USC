@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Card, CardImageTop } from "../components/Card";
@@ -48,7 +47,7 @@ HomeSection.defaultProps = {
 /* Functional Component */
 
 const Home = () => {
-  const [homeGrid, setHomeGrid] = useState([
+  const homeGrid = [
     {
       image: "/images/home/USC_Estatua-Entrada.webp",
     },
@@ -58,7 +57,7 @@ const Home = () => {
     {
       image: "/images/home/USC_Night.webp",
     },
-  ]);
+  ];
 
   return (
     <HomeContainer>

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Colors, Shadows } from "../styles";
@@ -51,7 +50,7 @@ Bar.defaultProps = {
 };
 
 const MenuBar = () => {
-  const [options, setOptions] = useState([
+  const options = [
     {
       title: "Formatos",
     },
@@ -67,7 +66,7 @@ const MenuBar = () => {
     {
       title: "Nuestras Cifras",
     },
-  ]);
+  ];
   return (
     <Bar>
       {options.map((option, i) => (
