@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import Arrow from "./Arrow";
+import Dots from "./Dots";
 
 /* Styled Components */
 
@@ -28,11 +30,6 @@ const SliderContainer = styled.section`
   }
 `;
 
-SliderContainer.defaultProps = {
-  elementHeight: "50vh",
-  mobileHeight: "50vh",
-};
-
 const Slide = styled.div`
   width: 100vw;
   height: 100%;
@@ -47,7 +44,7 @@ const Slide = styled.div`
   }
 `;
 
-const SlideText = styled.h2`
+const SlideTitle = styled.h2`
   position: absolute;
   color: white;
   z-index: 120;
@@ -55,12 +52,14 @@ const SlideText = styled.h2`
   font-size: 5vw;
   align-self: ${(props) => props.align};
   justify-self: ${(props) => props.justify};
-`;
+  @media (max-width: 750px) {
+    font-size: 4vw;
+  }
 
-SlideText.defaultProps = {
-  align: "center",
-  justify: "center",
-};
+  @media (max-width: 500px) {
+    font-size: 4.5vw;
+  }
+`;
 
 const SlideImage = styled.img`
   width: 100vw;
@@ -68,18 +67,41 @@ const SlideImage = styled.img`
   object-fit: cover;
 `;
 
+/* Default Props */
+
+SliderContainer.defaultProps = {
+  elementHeight: "50vh",
+  mobileHeight: "50vh",
+};
+
+SlideTitle.defaultProps = {
+  align: "center",
+  justify: "center",
+};
+
 /* Functional Component */
 
-const Slider = ({ slides, height, mobileHeight }) => {
+const Slider = ({
+  slides,
+  height,
+  mobileHeight,
+  dots,
+  arrows,
+  dotActiveColor,
+}) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const timeout = useRef(null);
 
-  useEffect(() => {
-    const nextSlide = () => {
-      setCurrent(current === length - 1 ? 0 : current + 1);
-    };
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
 
+  const previousSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  useEffect(() => {
     timeout.current = setTimeout(nextSlide, 5000);
 
     return () => {
@@ -87,11 +109,7 @@ const Slider = ({ slides, height, mobileHeight }) => {
         clearTimeout(timeout.current);
       }
     };
-  }, [current, length]);
-
-  // const previousSlide = () => {
-  //   setCurrent(current === 0 ? length - 1 : current - 1);
-  // };
+  });
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;
@@ -105,14 +123,35 @@ const Slider = ({ slides, height, mobileHeight }) => {
             {index === current ? (
               <>
                 <SlideImage src={slide.image} alt={slide.title} />
-                <SlideText>{slide.title}</SlideText>
+                <SlideTitle>{slide.title}</SlideTitle>
               </>
             ) : null}
           </Slide>
         );
       })}
+      {arrows ? (
+        <>
+          <Arrow direction="left" handleClick={previousSlide} />
+          <Arrow direction="right" handleClick={nextSlide} />
+        </>
+      ) : null}
+      {dots ? (
+        <Dots
+          slides={slides.length}
+          onClick={setCurrent}
+          current={current}
+          dotActiveColor={dotActiveColor}
+        />
+      ) : null}
     </SliderContainer>
   );
+};
+
+/* Default Props */
+
+Slider.defaultProps = {
+  dots: true,
+  arrows: true,
 };
 
 export default Slider;

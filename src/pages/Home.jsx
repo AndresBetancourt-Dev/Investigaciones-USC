@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Card, CardImageTop } from "../components/Card";
 import MenuBar from "../components/MenuBar";
 import SEO from "../components/SEO";
-import Slider from "../components/Slider";
+import Slider from "../components/Slider/Slider";
 import { SliderHome } from "../data/slider/SliderHome";
 import { Colors } from "../styles";
 
