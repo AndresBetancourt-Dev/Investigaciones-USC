@@ -4,7 +4,7 @@ import { Shadows } from "../styles";
 /* Styled Components */
 
 export const Card = styled.div`
-  background: ${(props) => props.background};
+  background: ${(props) => props.elementBackground};
   padding: ${(props) => props.padding};
   width: ${(props) => props.elementWidth};
   text-align: ${(props) => props.textAlign};
@@ -61,7 +61,7 @@ Card.defaultProps = {
   mobileHeight: "auto",
   mobileMaxHeight: "auto",
   boxShadow: "normal",
-  background: "white",
+  elementBackground: "white",
   rounded: false,
   elementFontWeight: "300",
   textAlign: "justify",

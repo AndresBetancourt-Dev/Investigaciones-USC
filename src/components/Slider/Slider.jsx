@@ -22,7 +22,7 @@ const SliderContainer = styled.section`
     height: 100%;
     inset: auto;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.5);
+    background: ${(props) => props.sliderOverlay};
   }
 
   @media (max-width: 500px) {
@@ -72,6 +72,7 @@ const SlideImage = styled.img`
 SliderContainer.defaultProps = {
   elementHeight: "50vh",
   mobileHeight: "50vh",
+  sliderOverlay: "rgba(0, 0, 0, 0.5)",
 };
 
 SlideTitle.defaultProps = {
@@ -88,6 +89,7 @@ const Slider = ({
   dots,
   arrows,
   dotActiveColor,
+  sliderOverlay,
 }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
@@ -116,7 +118,11 @@ const Slider = ({
   }
 
   return (
-    <SliderContainer elementHeight={height} mobileHeight={mobileHeight}>
+    <SliderContainer
+      elementHeight={height}
+      mobileHeight={mobileHeight}
+      sliderOverlay={sliderOverlay}
+    >
       {slides.map((slide, index) => {
         return (
           <Slide className={index === current ? "active" : ""} key={index}>

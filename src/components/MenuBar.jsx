@@ -8,7 +8,6 @@ const Bar = styled.section`
   padding: 1em;
   display: flex;
   justify-content: center;
-  overflow-x: scroll;
 
   @media (max-width: 750px) {
     flex-wrap: wrap;
@@ -49,31 +48,54 @@ Bar.defaultProps = {
   elementBackground: Colors.blue,
 };
 
-const MenuBar = () => {
-  const options = [
-    {
-      title: "Formatos",
-    },
-    {
-      title: "Sistema de Investigación",
-    },
-    {
-      title: "Centros de Investigación",
-    },
-    {
-      title: "Nuestras Redes",
-    },
-    {
-      title: "Nuestras Cifras",
-    },
-  ];
+const MenuBar = ({ page }) => {
+  const options = {
+    DGI: [
+      {
+        title: "Formatos",
+      },
+      {
+        title: "Sistema de Investigación",
+      },
+      {
+        title: "Centros de Investigación",
+      },
+      {
+        title: "Nuestras Redes",
+      },
+      {
+        title: "Nuestras Cifras",
+      },
+    ],
+    Editorial: [
+      {
+        title: "Libros",
+      },
+      {
+        title: "Eventos",
+      },
+      {
+        title: "Redes Sociales",
+      },
+      {
+        title: "Catálogo",
+      },
+      {
+        title: "Boletines",
+      },
+    ],
+  };
   return (
     <Bar>
-      {options.map((option, i) => (
+      {options[page].map((option, i) => (
         <BarItem key={i}>{option.title}</BarItem>
       ))}
     </Bar>
   );
+};
+
+MenuBar.defaultProps = {
+  page: "DGI",
 };
 
 export default MenuBar;
