@@ -48,7 +48,8 @@ const Dots = ({ slides, onClick, current, dotActiveColor }) => {
       {[...Array(slides)].map((dot, index) => (
         <Dot
           key={index}
-          onClick={(e) => onClick(index)}
+          title={dot}
+          onClick={() => onClick(index)}
           className={current === index ? "active" : ""}
           dotActiveColor={dotActiveColor}
         />

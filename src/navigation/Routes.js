@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Convocatorias from "../pages/Convocatorias";
 import Editorial from "../pages/Editorial";
 import Home from "../pages/Home";
+import Normatividad from "../pages/Normatividad";
 import OldHome from "../pages/OldHome";
 import RequestsList from "../pages/RequestsList";
 import Solicitudes from "../pages/Solicitudes";
@@ -20,6 +21,7 @@ const Routes = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={OldHome} />
+          <Route exact path="/normatividad" component={Normatividad} />
           <Route exact path="/editorial" component={Editorial} />
           <Route exact path="/solicitudes" component={Solicitudes} />
           <Route exact path="/solicitudes/:section" component={RequestsList} />

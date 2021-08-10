@@ -28,12 +28,12 @@ const ArrowIcon = styled(IoMdArrowDropdown)`
 
 /* Functional Component */
 
-const Arrow = ({ direction, handleClick }) => {
+const Arrow = ({ direction, handleClick, arrowColor }) => {
   return (
     <ArrowIcon
       direction={direction}
-      onClick={(e) => handleClick()}
-      color={"white"}
+      onClick={() => handleClick()}
+      color={arrowColor || "white"}
     />
   );
 };
