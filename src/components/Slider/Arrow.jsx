@@ -1,5 +1,6 @@
 import { IoMdArrowDropdown } from "react-icons/io";
 import styled from "styled-components";
+import { Screen } from "../../styles";
 
 /* Styled Components */
 
@@ -15,12 +16,12 @@ const ArrowIcon = styled(IoMdArrowDropdown)`
   cursor: pointer;
   z-index: 125;
 
-  @media (max-width: 1250px) {
+  @media (${Screen.laptopXL}) {
     width: 4.5vw;
     height: 4.5vw;
   }
 
-  @media (max-width: 750px) {
+  @media (${Screen.tabletXL}) {
     width: 6.5vw;
     height: 6.5vw;
   }

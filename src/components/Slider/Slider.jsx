@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { Screen } from "../../styles";
 import Arrow from "./Arrow";
 import Dots from "./Dots";
 
@@ -52,11 +53,12 @@ const SlideTitle = styled.h2`
   font-size: 5vw;
   align-self: ${(props) => props.align};
   justify-self: ${(props) => props.justify};
-  @media (max-width: 750px) {
+
+  @media (${Screen.tabletXL}) {
     font-size: 4vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 4.5vw;
   }
 `;

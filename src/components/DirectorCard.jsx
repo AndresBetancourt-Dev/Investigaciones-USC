@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Colors } from "../styles";
+import { Colors, Screen } from "../styles";
 import { lineBreak } from "../utils";
 
 /* Styled Components */
@@ -12,7 +12,7 @@ const Director = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -20,6 +20,7 @@ const Director = styled.div`
 const DirectorImage = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const DirectorInformation = styled.div`
@@ -35,11 +36,11 @@ const DirectorTitle = styled.h2`
   text-align: center;
   font-size: 2vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 3.5vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 5vw;
   }
 `;
@@ -48,11 +49,11 @@ const DirectorSubtitle = styled.h4`
   text-align: center;
   font-size: 1.5vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 3vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 4vw;
   }
 `;
@@ -63,11 +64,11 @@ const DirectorContent = styled.div`
   font-weight: 300;
   font-size: 1vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 2vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 3.5vw;
   }
 `;
@@ -78,11 +79,11 @@ const DirectorSubContent = styled.div`
   font-weight: 300;
   font-size: 1vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 2vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 3.5vw;
   }
 `;
@@ -93,11 +94,11 @@ const DirectorContact = styled.div`
   justify-items: center;
   font-size: 1vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 2vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 3.5vw;
   }
 
