@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../styles";
+import { Colors, Screen } from "../styles";
 
 /* Styled Components */
 
@@ -15,11 +15,11 @@ export const Button = styled.a`
   transition: 0.5s ease-in;
   width: 100%;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 2vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 4vw;
   }
 `;

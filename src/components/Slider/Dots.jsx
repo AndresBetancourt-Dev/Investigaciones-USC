@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../styles";
+import { Colors, Screen } from "../../styles";
 
 /* Styled Components */
 
@@ -24,7 +24,7 @@ const Dot = styled.div`
   cursor: pointer;
   transition: 0.3s ease-in;
 
-  @media (max-width: 750px) {
+  @media (${Screen.tabletXL}) {
     width: 2vw;
     height: 2vw;
   }

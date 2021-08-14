@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Shadows } from "../styles";
+import { Screen, Shadows } from "../styles";
 
 /* Styled Components */
 
@@ -14,7 +14,6 @@ export const Card = styled.div`
   font-weight: ${(props) => props.elementFontWeight};
   box-shadow: ${(props) => Shadows[props.boxShadow]};
   border-radius: ${(props) => (props.rounded ? "10px" : "2.5px")};
-  gap: ${(props) => props.gap};
 
   ${(props) =>
     props.hovereable
@@ -26,15 +25,15 @@ export const Card = styled.div`
   `
       : null}
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 1.5vw;
   }
 
-  @media (max-width: 650px) {
+  @media (${Screen.tablet}) {
     font-size: 2vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 3.5vw;
     width: ${(props) => props.mobileWidth};
     height: ${(props) => props.mobileHeight};
