@@ -1,12 +1,15 @@
-import React from "react";
 import styled from "styled-components";
-import { Colors, Shadows } from "../styles";
+import { Colors, Screen, Shadows } from "../styles";
 import { proxy, useSnapshot } from "valtio";
 import { lineBreak } from "../utils";
+
+/* Global Shared State */
 
 export const FooterState = proxy({
   visible: true,
 });
+
+/* Styled Components */
 
 const FooterContainer = styled.footer`
   width: ${(props) => props.elementWidth};
@@ -18,7 +21,7 @@ const FooterContainer = styled.footer`
   color: white;
   justify-content: center;
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     flex-direction: column;
   }
 `;
@@ -35,7 +38,7 @@ const FooterContent = styled.section`
     padding: 1em;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     width: 100%;
     & * {
       width: 100%;
@@ -52,7 +55,7 @@ const FooterMenu = styled.nav`
   padding: 1em;
   box-shadow: ${Shadows.light};
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     width: 100%;
   }
 `;
@@ -65,15 +68,15 @@ const FooterMenuTitle = styled.h2`
   text-align: center;
   font-size: 2vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 2.5vw;
   }
 
-  @media (max-width: 650px) {
+  @media (${Screen.tablet}) {
     font-size: 3vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 4.5vw;
   }
 `;
@@ -81,18 +84,20 @@ const FooterMenuTitle = styled.h2`
 const FooterMenuContent = styled.div`
   font-size: 1vw;
 
-  @media (max-width: 1050px) {
+  @media (${Screen.laptop}) {
     font-size: 1.5vw;
   }
 
-  @media (max-width: 650px) {
+  @media (${Screen.tablet}) {
     font-size: 2.5vw;
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     font-size: 3.5vw;
   }
 `;
+
+/* Functional Component */
 
 const FooterMenuItem = ({ title, content }) => {
   return (
@@ -103,11 +108,15 @@ const FooterMenuItem = ({ title, content }) => {
   );
 };
 
+/* Default Props */
+
 FooterContainer.defaultProps = {
   elementWidth: "100%",
   elementHeight: "auto",
   elementBackground: Colors.blue,
 };
+
+/* Constant Data */
 
 const directions = [
   {
@@ -132,6 +141,8 @@ const directions = [
     Colombia`,
   },
 ];
+
+/* Functional Component */
 
 const Footer = () => {
   const sharedState = useSnapshot(FooterState);
@@ -160,9 +171,9 @@ const Footer = () => {
         </FooterMenuContent>
       </FooterContent>
       <FooterMenu>
-        {directions.map((direction, i) => (
+        {directions.map((direction) => (
           <FooterMenuItem
-            key={i}
+            key={direction.title}
             title={direction.title}
             content={direction.content}
           />

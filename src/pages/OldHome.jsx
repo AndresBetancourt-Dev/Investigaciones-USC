@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
@@ -5,7 +6,6 @@ import DirectorCard from "../components/DirectorCard";
 
 import SEO from "../components/SEO";
 import { MAIN_URL } from "../constants";
-import { useComponentWillMount } from "../hooks";
 import { disableHeader, disableFooter } from "../utils";
 
 /* Styled Components */
@@ -64,10 +64,10 @@ const gridButtons = [
 /* Functional Component */
 
 const OldHome = () => {
-  useComponentWillMount(() => {
+  useEffect(() => {
     disableHeader();
     disableFooter();
-  });
+  }, []);
 
   return (
     <HomeContainer>
@@ -79,7 +79,13 @@ const OldHome = () => {
       <Card>
         <GridButtonsContainer>
           {gridButtons.map(({ title, link }) => (
-            <Button href={link} target="_blank" rel="noreferrer">
+            <Button
+              key={title}
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              type={"normal"}
+            >
               {title}
             </Button>
           ))}
@@ -89,6 +95,7 @@ const OldHome = () => {
             href={`${MAIN_URL}/solicitudes`}
             target="_blank"
             rel="noreferrer"
+            type={"normal"}
           >
             Solicitudes
           </Button>
@@ -96,6 +103,7 @@ const OldHome = () => {
             href={`${MAIN_URL}/formatos`}
             target="_blank"
             rel="noreferrer"
+            type={"normal"}
           >
             Lista de Formatos
           </Button>
@@ -103,6 +111,7 @@ const OldHome = () => {
             href="https://convocatoriasdgi.usc.edu.co/login"
             target="_blank"
             rel="noreferrer"
+            type={"normal"}
           >
             Sistema de Investigación
           </Button>

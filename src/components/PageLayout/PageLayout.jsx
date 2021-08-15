@@ -1,6 +1,9 @@
-import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import { Colors, Screen } from "../../styles";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+
+/* Styled Components */
 
 const PageLayoutContainer = styled.section`
   width: 100%;
@@ -47,6 +50,31 @@ const PageLayoutTitle = styled.h1`
   }
 `;
 
+const PageLayoutGoBack = styled.div`
+  position: relative;
+  padding-top: 1em;
+  padding-left: 2vw;
+`;
+
+const ArrowExit = styled(FaArrowAltCircleLeft)`
+  width: 2.5vw;
+  height: 2.5vw;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+
+  @media (${Screen.tablet}) {
+    width: 3.5vw;
+    height: 3.5vw;
+  }
+
+  @media (${Screen.mobile}) {
+    width: 5vw;
+    height: 5vw;
+  }
+`;
+
+/* Default Props */
+
 PageLayoutHeader.defaultProps = {
   elementHeight: "20vh",
 };
@@ -55,16 +83,29 @@ PageLayoutTitle.defaultProps = {
   textColor: "white",
 };
 
-const PageLayout = ({ background, type, title, children }) => {
+/* Functional Component */
+
+const PageLayout = ({ background, type, title, elementHeight, children }) => {
+  let history = useHistory();
+
   return (
     <PageLayoutContainer>
-      <PageLayoutHeader background={background} type={type}>
+      <PageLayoutHeader
+        background={background}
+        type={type}
+        elementHeight={elementHeight}
+      >
         <PageLayoutTitle>{title}</PageLayoutTitle>
       </PageLayoutHeader>
+      <PageLayoutGoBack>
+        <ArrowExit onClick={() => history.goBack()} color={Colors.blue} />
+      </PageLayoutGoBack>
       {children}
     </PageLayoutContainer>
   );
 };
+
+/* Default Props */
 
 PageLayout.defaultProps = {
   background: "/images/common/investigaciones-header-page.png",

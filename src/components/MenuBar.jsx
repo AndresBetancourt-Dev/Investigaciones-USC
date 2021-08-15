@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Colors, Shadows } from "../styles";
 
+/* Styled Components */
+
 const Bar = styled.section`
   height: ${(props) => props.elementHeight};
   background: ${(props) => props.elementBackground};
@@ -43,52 +45,68 @@ const BarItem = styled(Link)`
   }
 `;
 
+/* Default Props */
+
 Bar.defaultProps = {
   elementHeight: "auto",
   elementBackground: Colors.blue,
 };
+
+/* Functional Component */
 
 const MenuBar = ({ page }) => {
   const options = {
     DGI: [
       {
         title: "Formatos",
+        url: "/formatos",
       },
       {
         title: "Sistema de Investigación",
+        url: "/",
       },
       {
         title: "Centros de Investigación",
+        url: "/",
       },
       {
         title: "Nuestras Redes",
+        url: "/",
       },
       {
         title: "Nuestras Cifras",
+        url: "/",
       },
     ],
     Editorial: [
       {
         title: "Libros",
+        url: "/",
       },
       {
         title: "Eventos",
+        url: "/",
       },
       {
         title: "Redes Sociales",
+        url: "/",
       },
       {
         title: "Catálogo",
+        url: "/",
       },
       {
         title: "Boletines",
+        url: "/",
       },
     ],
   };
   return (
     <Bar>
       {options[page].map((option, i) => (
-        <BarItem key={i}>{option.title}</BarItem>
+        <BarItem key={i} to={option.url}>
+          {option.title}
+        </BarItem>
       ))}
     </Bar>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
-import { Colors, Shadows } from "../styles";
+import { Colors, Screen, Shadows } from "../styles";
 import { proxy, useSnapshot } from "valtio";
 import Navbar from "./Navbar";
 import { ImMenu as Hamburger } from "react-icons/im";
@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
   background-color: ${(props) =>
     props.fixed ? props.background : Colors.blue};
   color: ${(props) => props.fontColor};
-  position: ${(props) => (props.fixed ? "fixed" : "relative")};
+  position: ${(props) => (props.fixed ? "fixed" : "none")};
   display: flex;
   justify-content: space-between;
   padding: 1em;
@@ -78,7 +78,7 @@ const MenuButton = styled.div`
     color: white;
   }
 
-  @media (max-width: 650px) {
+  @media (${Screen.tablet}) {
     width: 7.5vw;
     height: 7.5vw;
 
@@ -87,7 +87,7 @@ const MenuButton = styled.div`
     }
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     width: 2.5em;
     height: 2.5em;
   }
@@ -105,13 +105,12 @@ HeaderContainer.defaultProps = {
 const Header = () => {
   const [navbarIsActive, setNavbarIsActive] = useState(false);
 
-  const changeNavbarColor = () => setNavbarIsActive(window.scrollY >= 150);
+  const changeNavbarColor = () => setNavbarIsActive(window.scrollY >= 100);
   const changeVisibleMenu = () => (HeaderState.visible = !HeaderState.visible);
 
   window.addEventListener("scroll", changeNavbarColor);
 
   const sharedState = useSnapshot(HeaderState);
-
   return (
     <HeaderContainer
       className={navbarIsActive ? "active" : ""}

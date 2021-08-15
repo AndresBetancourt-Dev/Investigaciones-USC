@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Colors } from "../styles";
+import { Link } from "react-router-dom";
 import { requestsContent, requestsImages } from "../data/requests/requests";
 import PageLayout from "../components/PageLayout/PageLayout";
-import { Tabs } from "../components/Tabs";
+import { Card } from "../components/Card";
 
 /* Styled Components */
 
@@ -15,24 +16,66 @@ const SolicitudesLayout = styled.section`
   height: 100%;
 `;
 
-const FlexSolicitudes = styled.section`
+const SolicitudesText = styled.div`
+  margin: 0;
+`;
+
+const GridSolicitudes = styled.section`
   background: ${Colors.blue};
-  display: flex;
+  display: grid;
   width: 100%;
   height: auto;
-  justify-content: center;
-  padding: 1.5vw;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  padding: 2em;
 
   @media (max-width: 500px) {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
 `;
 
+const SolicitudesButton = styled(Link)`
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+`;
+
+const SolicitudesIcon = styled.img`
+  width: 15vw;
+  height: 15vw;
+`;
+
+const SolicitudesTitle = styled.h3`
+  color: white;
+  text-align: center;
+  font-size: 3vw;
+  margin: 0;
+  padding: 1em;
+  text-decoration: none;
+`;
+
 /* Functional Components */
 
 const SolicitudesContainer = ({ children }) => {
-  return <SolicitudesLayout>{children}</SolicitudesLayout>;
+  return (
+    <SolicitudesLayout>
+      <Card boxShadow="light">
+        <SolicitudesText>
+          Para diligenciar cualquiera de los formularios se requiere que inicie
+          primero sesión en su Cuenta de Correo Electrónico Institucional.
+          Cumplido lo anterior de clic sobre el formulario que desea
+          diligenciar.
+        </SolicitudesText>
+      </Card>
+      {children}
+    </SolicitudesLayout>
+  );
 };
 
 const Solicitudes = () => {
@@ -72,9 +115,16 @@ const Solicitudes = () => {
   return (
     <PageLayout title={"Solicitudes"} image={"/images/common/owl.png"}>
       <SolicitudesContainer>
-        <FlexSolicitudes>
-          <Tabs sections={sections} />
-        </FlexSolicitudes>
+        <GridSolicitudes>
+          {sections.map(({ image, url, title }) => {
+            return (
+              <SolicitudesButton to={url} key={title}>
+                <SolicitudesIcon src={image} alt={title}></SolicitudesIcon>
+                <SolicitudesTitle>{title}</SolicitudesTitle>
+              </SolicitudesButton>
+            );
+          })}
+        </GridSolicitudes>
       </SolicitudesContainer>
     </PageLayout>
   );

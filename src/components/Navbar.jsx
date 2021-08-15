@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Screen } from "../styles";
+
+/* Styled Components */
 
 const NavbarList = styled.ul`
   list-style: none;
@@ -7,22 +10,22 @@ const NavbarList = styled.ul`
 
 const NavbarItem = styled.li``;
 
-const commonLinkStyles = `
-color: white;
-font-weight: bold;
-text-decoration: none;
-font-size: 5vw;
-margin : 0;
-padding : 0;
-letter-spacing : -2.5px;
+const commonLinkStyles = css`
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 4vw;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -2.5px;
 
-@media (max-width: 650px) {
-  font-size: 7.5vw;
-}
+  @media (${Screen.tablet}) {
+    font-size: 7.5vw;
+  }
 
-@media (max-width: 500px) {
-  font-size: 10vw;
-}
+  @media (${Screen.mobile}) {
+    font-size: 10vw;
+  }
 `;
 
 const NavbarLink = styled(Link)`
@@ -38,8 +41,14 @@ const NavbarButton = styled.button`
   font-family: "GT Walsheim Pro";
 `;
 
+/* Functional Component */
+
 const Navbar = () => {
   const pages = [
+    {
+      title: "Home",
+      url: "/",
+    },
     {
       title: "Solicitudes",
       url: "/solicitudes",
@@ -56,6 +65,10 @@ const Navbar = () => {
     {
       title: "Normatividad",
       url: "/normatividad",
+    },
+    {
+      title: "OTRI",
+      url: "/otri",
     },
     {
       title: "Editorial",
