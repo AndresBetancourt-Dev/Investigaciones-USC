@@ -26,7 +26,7 @@ const SliderContainer = styled.section`
     background: ${(props) => props.sliderOverlay};
   }
 
-  @media (max-width: 500px) {
+  @media (${Screen.mobile}) {
     height: ${(props) => props.mobileHeight};
   }
 `;

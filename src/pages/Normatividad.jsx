@@ -1,10 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import { Card } from "../components/Card";
 import Resolution from "../components/Normatividad/Resolution";
 import PageLayout from "../components/PageLayout/PageLayout";
 import { normatividad } from "../data/normatividad/normatividad";
 import { Colors } from "../styles";
+
+/* Styled Components */
 
 const NormatividadContainer = styled.section`
   width: 100%;
@@ -14,7 +15,6 @@ const NormatividadContainer = styled.section`
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 2vw;
 `;
 
 const NormatividadTitle = styled.h2`
@@ -48,6 +48,8 @@ const NormatividadCard = styled(Card)`
     margin: 3em;
   }
 `;
+
+/* Functional Components */
 
 const Normatividad = () => {
   return (

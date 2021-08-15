@@ -1,6 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { Colors, Screen, Shadows } from "../../styles";
+
+/* Styled Components */
 
 const ResolutionContainer = styled.div`
   width: 100%;
@@ -62,6 +63,8 @@ const ResolutionTitle = styled.h3`
     font-size: 3.5vw;
   }
 `;
+
+/* Functional Component */
 
 const Resolution = ({ title, description }) => {
   return (

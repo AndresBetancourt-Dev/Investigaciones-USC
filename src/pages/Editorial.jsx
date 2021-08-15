@@ -1,10 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import Slider from "../components/Slider/Slider";
 import { SliderEditorial } from "../data/slider/SliderEditorial";
 import { Colors, Degrees } from "../styles";
 import { Card } from "../components/Card";
 import MenuBar from "../components/MenuBar";
+
+/* Styled Components */
 
 const EditorialContainer = styled.section`
   width: 100%;
@@ -41,6 +42,8 @@ const EditorialImage = styled.img`
   height: 30%;
 `;
 
+/* Default Props */
+
 EditorialSection.defaultProps = {
   elementWidth: "100%",
   elementHeight: "100%",
@@ -57,6 +60,8 @@ EditorialTitle.defaultProps = {
 EditorialTitle.defaultProps = {
   fontColor: Colors.blue,
 };
+
+/* Functional Components */
 
 const Editorial = () => {
   return (

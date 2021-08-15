@@ -50,12 +50,15 @@ const Home = () => {
   const homeGrid = [
     {
       image: "/images/home/USC_Estatua-Entrada.webp",
+      url: "/",
     },
     {
       image: "/images/home/USC_Bloque-3.webp",
+      url: "/",
     },
     {
       image: "/images/home/USC_Night.webp",
+      url: "/",
     },
   ];
 
@@ -126,7 +129,7 @@ const Home = () => {
             key={i}
             hovereable
           >
-            <Link>
+            <Link to={homeColumn.url}>
               <CardImageTop
                 src={homeColumn.image}
                 rounded
