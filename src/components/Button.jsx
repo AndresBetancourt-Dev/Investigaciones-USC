@@ -43,6 +43,7 @@ export const Button = ({
   fontWeight,
   children,
   to,
+  ...rest
 }) => {
   switch (type) {
     case "normal":
@@ -52,6 +53,7 @@ export const Button = ({
           color={color}
           fontWeight={fontWeight}
           href={to}
+          {...rest}
         >
           {children}
         </NormalButton>
