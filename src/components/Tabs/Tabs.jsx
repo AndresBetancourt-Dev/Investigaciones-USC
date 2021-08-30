@@ -14,6 +14,7 @@ const TabContainer = styled.div`
   min-height: 500px;
   background: white;
   display: flex;
+  box-shadow: ${Shadows.normal};
 
   @media (${Screen.tabletXL}) {
     flex-direction: column;
@@ -100,7 +101,7 @@ const TabItem = styled.li`
 `;
 
 const TabItemImage = styled.img`
-  width: 20%;
+  width: 30%;
 
   @media (${Screen.tabletXL}) {
     width: 50%;
@@ -123,7 +124,7 @@ const TabItemTitle = styled.h3`
 
 /* Functional Component */
 
-const Tabs = ({ sections = [] }) => {
+const Tabs = ({ sections = [{}] }) => {
   const [activeTab, setActiveTab] = useState(sections[0].title);
   const [found, setFound] = useState(true);
 

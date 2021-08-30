@@ -6,17 +6,7 @@ import { Tabs } from "../components/Tabs";
 
 /* Styled Components */
 
-const SolicitudesLayout = styled.section`
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
-  height: 100%;
-`;
-
 const FlexSolicitudes = styled.section`
-  background: ${Colors.blue};
   display: flex;
   width: 100%;
   height: auto;
@@ -30,10 +20,6 @@ const FlexSolicitudes = styled.section`
 `;
 
 /* Functional Components */
-
-const SolicitudesContainer = ({ children }) => {
-  return <SolicitudesLayout>{children}</SolicitudesLayout>;
-};
 
 const Solicitudes = () => {
   const sections = [
@@ -71,11 +57,9 @@ const Solicitudes = () => {
 
   return (
     <PageLayout title={"Solicitudes"} image={"/images/common/owl.png"}>
-      <SolicitudesContainer>
-        <FlexSolicitudes>
-          <Tabs sections={sections} />
-        </FlexSolicitudes>
-      </SolicitudesContainer>
+      <FlexSolicitudes>
+        <Tabs sections={sections} />
+      </FlexSolicitudes>
     </PageLayout>
   );
 };

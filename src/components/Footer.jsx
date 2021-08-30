@@ -150,9 +150,7 @@ const Footer = () => {
     <FooterContainer visible={sharedState.visible}>
       <FooterContent>
         <FooterMenuContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          ratione, quod dolore qui aliquid, sint nobis ad vero at illo, fugit
-          voluptate saepe aspernatur laborum adipisci dolor in porro dicta!
+          <img src="" alt="Logo de la Universidad Santiago de Cali" />
         </FooterMenuContent>
         <FooterMenuContent>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
