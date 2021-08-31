@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import { Colors, Screen, Shadows } from "../styles";
+import { FaFacebookSquare as Facebook } from "react-icons/fa";
 import { proxy, useSnapshot } from "valtio";
+
+import USC_LOGO from "../assets/images/usc-owl-logo.png";
+import { Colors, Screen, Shadows } from "../styles";
 import { lineBreak } from "../utils";
 
 /* Global Shared State */
@@ -21,7 +24,7 @@ const FooterContainer = styled.footer`
   color: white;
   justify-content: center;
 
-  @media (${Screen.mobile}) {
+  @media (${Screen.tablet}) {
     flex-direction: column;
   }
 `;
@@ -38,7 +41,7 @@ const FooterContent = styled.section`
     padding: 1em;
   }
 
-  @media (${Screen.mobile}) {
+  @media (${Screen.tablet}) {
     width: 100%;
     & * {
       width: 100%;
@@ -55,9 +58,15 @@ const FooterMenu = styled.nav`
   padding: 1em;
   box-shadow: ${Shadows.light};
 
-  @media (${Screen.mobile}) {
+  @media (${Screen.tablet}) {
     width: 100%;
   }
+`;
+
+const FooterText = styled.div`
+  width: 100%;
+  padding: 0;
+  text-align: center;
 `;
 
 const FooterMenuContainer = styled.div`
@@ -83,6 +92,11 @@ const FooterMenuTitle = styled.h2`
 
 const FooterMenuContent = styled.div`
   font-size: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1em;
 
   @media (${Screen.laptop}) {
     font-size: 1.5vw;
@@ -97,16 +111,39 @@ const FooterMenuContent = styled.div`
   }
 `;
 
-/* Functional Component */
+const FooterSocialNetworks = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  gap: 2.5px;
 
-const FooterMenuItem = ({ title, content }) => {
-  return (
-    <FooterMenuContainer>
-      <FooterMenuTitle>{title}</FooterMenuTitle>
-      {lineBreak(content, FooterMenuContent)}
-    </FooterMenuContainer>
-  );
-};
+  & svg {
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  @media (${Screen.tablet}) {
+    & svg {
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+`;
+
+const FooterLogo = styled.img`
+  width: 20vw;
+  height: 15vw;
+
+  @media (${Screen.tablet}) {
+    width: 30vw;
+    height: 25vw;
+  }
+`;
 
 /* Default Props */
 
@@ -142,7 +179,59 @@ const directions = [
   },
 ];
 
+const socialNetworks = [
+  {
+    title: "Facebook",
+    url: "",
+    Icon: Facebook,
+  },
+  {
+    title: "Facebook",
+    url: "",
+    Icon: Facebook,
+  },
+  {
+    title: "Facebook",
+    url: "",
+    Icon: Facebook,
+  },
+  {
+    title: "Facebook",
+    url: "",
+    Icon: Facebook,
+  },
+  {
+    title: "Facebook",
+    url: "",
+    Icon: Facebook,
+  },
+];
+
 /* Functional Component */
+
+const FooterSocial = () => {
+  return (
+    <FooterSocialNetworks>
+      {socialNetworks.map(({ url, title, Icon }) => {
+        return (
+          <a href={url} target="_blank" title={title} rel="noreferrer">
+            <Icon />
+          </a>
+        );
+      })}
+    </FooterSocialNetworks>
+  );
+};
+
+const FooterMenuItem = ({ title, content = "", children }) => {
+  return (
+    <FooterMenuContainer>
+      <FooterMenuTitle>{title}</FooterMenuTitle>
+      {content !== "" ? lineBreak(content, FooterMenuContent) : null}
+      {children}
+    </FooterMenuContainer>
+  );
+};
 
 const Footer = () => {
   const sharedState = useSnapshot(FooterState);
@@ -150,23 +239,25 @@ const Footer = () => {
     <FooterContainer visible={sharedState.visible}>
       <FooterContent>
         <FooterMenuContent>
-          <img src="" alt="Logo de la Universidad Santiago de Cali" />
+          <FooterLogo
+            src={USC_LOGO}
+            alt="Logo de la Universidad Santiago de Cali"
+          />
         </FooterMenuContent>
         <FooterMenuContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          ratione, quod dolore qui aliquid, sint nobis ad vero at illo, fugit
-          voluptate saepe aspernatur laborum adipisci dolor in porro dicta!
+          <FooterMenuItem title={"Redes Sociales"}>
+            <FooterSocial />
+          </FooterMenuItem>
         </FooterMenuContent>
         <FooterMenuContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          ratione, quod dolore qui aliquid, sint nobis ad vero at illo, fugit
-          voluptate saepe aspernatur laborum adipisci dolor in porro dicta!
+          {lineBreak(
+            ` Institución de Educación superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
+          Personería Jurídica ortorgada por el Ministerio de Justicia mediante la Resolución No. 2800 del 02 de Septiembre de 1958.
+          Reconocida como Universidad por el Decreto No. 1297 de 1964 emanado del Ministerio de Educación Nacional.`,
+            FooterText
+          )}
         </FooterMenuContent>
-        <FooterMenuContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          ratione, quod dolore qui aliquid, sint nobis ad vero at illo, fugit
-          voluptate saepe aspernatur laborum adipisci dolor in porro dicta!
-        </FooterMenuContent>
+        <FooterMenuContent></FooterMenuContent>
       </FooterContent>
       <FooterMenu>
         {directions.map((direction) => (
@@ -174,6 +265,7 @@ const Footer = () => {
             key={direction.title}
             title={direction.title}
             content={direction.content}
+            type="text"
           />
         ))}
       </FooterMenu>

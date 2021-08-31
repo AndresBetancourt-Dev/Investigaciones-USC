@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Colors } from "../styles";
 import { requestsContent, requestsImages } from "../data/requests/requests";
 import PageLayout from "../components/PageLayout/PageLayout";
 import { Tabs } from "../components/Tabs";
