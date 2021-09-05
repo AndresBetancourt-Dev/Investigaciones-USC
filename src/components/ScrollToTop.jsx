@@ -6,16 +6,12 @@ import { LayoutContext } from "../context/LayoutContext";
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();
-  const { headerState, setHeaderState } = useContext(LayoutContext);
+  const { hideHeader } = useContext(LayoutContext);
 
   useEffect(() => {
-    setHeaderState({
-      ...headerState,
-      fixed: true,
-      visible: false,
-    });
+    hideHeader();
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return null;
 }

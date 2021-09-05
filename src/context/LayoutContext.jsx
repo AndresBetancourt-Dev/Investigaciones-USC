@@ -13,9 +13,23 @@ export const LayoutProvider = ({ children }) => {
     visible: true,
   });
 
+  const hideHeader = () => {
+    setHeaderState({
+      ...headerState,
+      fixed: true,
+      visible: false,
+    });
+  };
+
   return (
     <LayoutContext.Provider
-      value={{ headerState, setHeaderState, footerState, setFooterState }}
+      value={{
+        headerState,
+        setHeaderState,
+        footerState,
+        setFooterState,
+        hideHeader,
+      }}
     >
       {children}
     </LayoutContext.Provider>
