@@ -86,7 +86,7 @@ const OldHome = () => {
 
       setFooterState({ ...footerState, visible: true });
     };
-  }, [headerState, setHeaderState, setFooterState, footerState]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <HomeContainer>
