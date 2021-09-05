@@ -1,16 +1,17 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { hideHeader } from "../utils";
+import { LayoutContext } from "../context/LayoutContext";
 
 /* Functional Component */
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();
+  const { hideHeader } = useContext(LayoutContext);
 
   useEffect(() => {
     hideHeader();
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return null;
 }

@@ -12,6 +12,7 @@ import Normatividad from "../pages/Normatividad";
 import OldHome from "../pages/OldHome";
 import Solicitudes from "../pages/Solicitudes";
 import NotFound from "../pages/NotFound";
+import Filun2021 from "../pages/Filun2021";
 
 /* Functional Component */
 
@@ -28,6 +29,7 @@ const Routes = () => {
           <Route exact path="/solicitudes" component={Solicitudes} />
           <Route exact path="/solicitudes/:route" component={Solicitudes} />
           <Route exact path="/convocatorias" component={Convocatorias} />
+          <Route exact path="/filun2021" component={Filun2021} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

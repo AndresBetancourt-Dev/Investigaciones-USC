@@ -1,7 +1,12 @@
 import Routes from "./navigation/Routes";
+import { LayoutProvider } from "./context/LayoutContext";
 
 function App() {
-  return <Routes />;
+  return (
+    <LayoutProvider>
+      <Routes />
+    </LayoutProvider>
+  );
 }
 
 export default App;
