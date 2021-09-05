@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
@@ -6,7 +6,9 @@ import DirectorCard from "../components/DirectorCard";
 
 import SEO from "../components/SEO";
 import { MAIN_URL } from "../constants";
-import { disableHeader, disableFooter } from "../utils";
+// import { disableHeader, disableFooter } from "../utils";
+
+import { LayoutContext } from "../context/LayoutContext";
 
 /* Styled Components */
 
@@ -64,10 +66,27 @@ const gridButtons = [
 /* Functional Component */
 
 const OldHome = () => {
+  const { headerState, setHeaderState, footerState, setFooterState } =
+    useContext(LayoutContext);
+
   useEffect(() => {
-    disableHeader();
-    disableFooter();
-  }, []);
+    setHeaderState({
+      ...headerState,
+      fixed: false,
+      showMenu: false,
+    });
+
+    setFooterState({ ...footerState, visible: false });
+    return () => {
+      setHeaderState({
+        ...headerState,
+        fixed: true,
+        showMenu: true,
+      });
+
+      setFooterState({ ...footerState, visible: true });
+    };
+  }, [headerState, setHeaderState, setFooterState, footerState]);
 
   return (
     <HomeContainer>

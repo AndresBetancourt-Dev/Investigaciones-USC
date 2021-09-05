@@ -1,18 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import { Colors, Screen, Shadows } from "../styles";
-import { proxy, useSnapshot } from "valtio";
 import Navbar from "./Navbar";
 import { ImMenu as Hamburger } from "react-icons/im";
 
-/* Global Shared State */
-
-export const HeaderState = proxy({
-  fixed: true,
-  showMenu: true,
-  visible: false,
-});
+import { LayoutContext } from "../context/LayoutContext";
 
 /* Styled Components */
 
@@ -78,7 +71,7 @@ const MenuButton = styled.div`
     color: white;
   }
 
-  @media (${Screen.tablet}) {
+  @media (${Screen.tabletXL}) {
     width: 7.5vw;
     height: 7.5vw;
 
@@ -103,28 +96,29 @@ HeaderContainer.defaultProps = {
 /* Functional Component */
 
 const Header = () => {
+  const { headerState, setHeaderState } = useContext(LayoutContext);
   const [navbarIsActive, setNavbarIsActive] = useState(false);
 
   const changeNavbarColor = () => setNavbarIsActive(window.scrollY >= 100);
-  const changeVisibleMenu = () => (HeaderState.visible = !HeaderState.visible);
+  const changeVisibleMenu = () =>
+    setHeaderState({ ...headerState, visible: !headerState.visible });
 
   window.addEventListener("scroll", changeNavbarColor);
 
-  const sharedState = useSnapshot(HeaderState);
   return (
     <HeaderContainer
       className={navbarIsActive ? "active" : ""}
-      fixed={sharedState.fixed}
+      fixed={headerState.fixed}
     >
       <Logo />
-      {sharedState.showMenu ? (
-        <MenuButton onClick={changeVisibleMenu} visible={sharedState.visible}>
+      {headerState.showMenu ? (
+        <MenuButton onClick={changeVisibleMenu} visible={headerState.visible}>
           <Hamburger
-            className={sharedState.visible ? "active" : ""}
+            className={headerState.visible ? "active" : ""}
           ></Hamburger>
         </MenuButton>
       ) : null}
-      <NavbarResponsiveMenu visible={sharedState.visible}>
+      <NavbarResponsiveMenu visible={headerState.visible}>
         <Navbar />
       </NavbarResponsiveMenu>
     </HeaderContainer>

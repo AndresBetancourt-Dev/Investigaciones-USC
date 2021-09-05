@@ -1,16 +1,11 @@
 import styled from "styled-components";
 import { FaFacebookSquare as Facebook } from "react-icons/fa";
-import { proxy, useSnapshot } from "valtio";
 
 import USC_LOGO from "../assets/images/usc-owl-logo.png";
 import { Colors, Screen, Shadows } from "../styles";
 import { lineBreak } from "../utils";
-
-/* Global Shared State */
-
-export const FooterState = proxy({
-  visible: true,
-});
+import { LayoutContext } from "../context/LayoutContext";
+import { useContext } from "react";
 
 /* Styled Components */
 
@@ -186,22 +181,22 @@ const socialNetworks = [
     Icon: Facebook,
   },
   {
-    title: "Facebook",
+    title: "Twitter",
     url: "",
     Icon: Facebook,
   },
   {
-    title: "Facebook",
+    title: "Youtube",
     url: "",
     Icon: Facebook,
   },
   {
-    title: "Facebook",
+    title: "Instagram",
     url: "",
     Icon: Facebook,
   },
   {
-    title: "Facebook",
+    title: "OJS",
     url: "",
     Icon: Facebook,
   },
@@ -214,7 +209,13 @@ const FooterSocial = () => {
     <FooterSocialNetworks>
       {socialNetworks.map(({ url, title, Icon }) => {
         return (
-          <a href={url} target="_blank" title={title} rel="noreferrer">
+          <a
+            href={url}
+            target="_blank"
+            title={title}
+            rel="noreferrer"
+            key={title}
+          >
             <Icon />
           </a>
         );
@@ -234,9 +235,9 @@ const FooterMenuItem = ({ title, content = "", children }) => {
 };
 
 const Footer = () => {
-  const sharedState = useSnapshot(FooterState);
+  const { footerState } = useContext(LayoutContext);
   return (
-    <FooterContainer visible={sharedState.visible}>
+    <FooterContainer visible={footerState.visible}>
       <FooterContent>
         <FooterMenuContent>
           <FooterLogo
