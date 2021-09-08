@@ -29,7 +29,7 @@ export const Screen = {
   mobile: "max-width: 500px",
   mobileHorizontal: "max-height: 450px",
   tablet: "max-width: 650px",
-  tabletXL: "max-width: 750px",
+  tabletXL: "max-width: 768px",
   laptop: "max-width: 1050px",
   laptopXL: "max-width: 1250px",
 };
