@@ -3,6 +3,8 @@ import ReactPlayer from "react-player";
 import { useSpring, animated } from "@react-spring/web";
 import styled from "styled-components";
 import { Screen } from "../styles";
+import { schedule } from "../data/filun/filun";
+import FilunDay from "../components/Filun/FilunDay";
 
 // const pages = [
 //   "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241258547_1249618785508686_1056617974919817084_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_ohc=VVYvZMowdBcAX8PiV3G&_nc_ht=scontent.fclo7-1.fna&oh=ab22847379156148a0ace5e0fbb3a2ad&oe=6139D5FC",
@@ -131,7 +133,7 @@ const FilunVideos = styled.section`
   }
 `;
 
-const FilunTitle = styled.h3`
+const FilunTitle = styled.h2`
   color: white;
   font-weight: bold;
   font-size: 3.5vw;
@@ -167,12 +169,14 @@ const FilunVideo = styled(ReactPlayer)`
 
 const FilunActivities = styled.section`
   width: 100%;
-  height: 100vh;
+  height: auto;
+  padding: 2.5vw 1vw;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  position: relative;
   background: linear-gradient(
     25deg,
     ${FilunColors.purple},
@@ -182,11 +186,17 @@ const FilunActivities = styled.section`
   );
 `;
 
-const FilunDay = styled.div`
-    width : 100%;
-    height : auto;
-    background : white;
-    padding 1.5vw;
+const FilunActivitiesPDF = styled.a`
+  background: ${FilunColors.pink};
+  box-shadow: 2px 2px 40px ${FilunColors.lightPink};
+  text-shadow: 2px 2px 40px rgba(0, 0, 0, 0.75);
+  color: white;
+  font-weight: 600;
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 `;
 
 const Filun2021 = () => {
@@ -230,8 +240,17 @@ const Filun2021 = () => {
         </FilunVideos>
       </FilunVideosContainer>
       <FilunActivities>
+        <FilunActivitiesPDF
+          href="https://investigaciones.usc.edu.co/images/DGI/Sello/Cronograma_Filun_USC_2021-LRO.pdf"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Descarga el Cronograma
+        </FilunActivitiesPDF>
         <FilunTitle>Cronograma</FilunTitle>
-        <FilunDay></FilunDay>
+        {schedule.map((day) => (
+          <FilunDay day={day} key={day.number} />
+        ))}
       </FilunActivities>
     </FilunContainer>
   );
