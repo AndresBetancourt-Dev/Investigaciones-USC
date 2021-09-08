@@ -1,11 +1,15 @@
-export const labelColors = {
-  purple: "#8679c7",
-  blue: "#01abe1",
+export const FilunColors = {
+  lightPink: "#d9a2b4",
+  pink: "#c675a7",
+  whiten: "#d1c4c6",
+  purple: "#7068bb",
+  purpleLabel: "#8679c7",
+  lightBlue: "#01abe1",
 };
 
 export const schedule = [
   {
-    day: "Lunes",
+    weekDay: "Lunes",
     number: 13,
     month: "Septiembre",
     slogan: "Inspirar y empoderar",
@@ -14,7 +18,7 @@ export const schedule = [
     activities: [
       {
         label: "Apertura y presentación de la feria",
-        labelColor: labelColors.purple,
+        labelColor: FilunColors.purple,
         title: "Homenaje a Juana Francisca Álvarez",
         subtitle: "Invitada Especial",
         example: "Eje 3: Género",
@@ -26,7 +30,7 @@ export const schedule = [
       },
       {
         label: "Lanzamiento de libros",
-        labelColor: labelColors.blue,
+        labelColor: FilunColors.lightBlue,
         title: "Mesa temática:",
         subtitle: "Ciencias Económicas",
         description: [
@@ -41,9 +45,9 @@ export const schedule = [
       },
       {
         label: "Lanzamiento de libros",
-        labelColor: labelColors.blue,
+        labelColor: FilunColors.lightBlue,
         title: "Mesa temática:",
-        subtitle: "Ciencias Económicas",
+        subtitle: "Literatura y Filosofía",
         description: [
           "Vivir dos veces (Editorial USC y Ediciones El Silencio).",
           "Autoficciones 2 (Editorial USC, Editorial Oveja Negra y Ediciones El Silencio).",

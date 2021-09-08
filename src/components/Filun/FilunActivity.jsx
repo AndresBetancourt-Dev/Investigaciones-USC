@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { GiWorld } from "react-icons/gi";
 
-import { labelColors } from "../../data/filun/filun";
+import { FilunColors } from "../../data/filun";
 import { Screen, Shadows } from "../../styles";
 
 const FilunActivityContainer = styled.div`
@@ -19,7 +19,7 @@ const FilunActivityContainer = styled.div`
 `;
 
 const FilunActivityType = styled.label`
-  background: ${(props) => props.labelColor || labelColors.purple};
+  background: ${(props) => props.labelColor || FilunColors.purple};
   color: white;
   width: auto;
   padding: 1vw;
@@ -28,7 +28,7 @@ const FilunActivityType = styled.label`
 
 const FilunActivityTitle = styled.h3`
   width: 100%;
-  margin: 1vh 1vw;
+  margin: 1em 1.5vw;
 
   font-size: 2vw;
 
@@ -47,7 +47,7 @@ const FilunActivityTitle = styled.h3`
 
 const FilunActivitySubtitle = styled.h4`
   width: 100%;
-  margin: 1vh 1vw;
+  margin: 1em 1.5vw;
   font-size: 1.25vw;
 
   @media (${Screen.laptop}) {
@@ -65,7 +65,7 @@ const FilunActivitySubtitle = styled.h4`
 
 const FilunActivityExample = styled.h5`
   width: 100%;
-  margin: 1vh 1vw;
+  margin: 1em 1.5vw;
   font-size: 1vw;
 
   @media (${Screen.laptop}) {
@@ -83,7 +83,7 @@ const FilunActivityExample = styled.h5`
 
 const FilunActivityDescription = styled.div`
   & p {
-    margin: 1vh 1vw;
+    margin: 1em 1.5vw;
     width: 100%;
   }
 `;
@@ -117,7 +117,7 @@ const FilunActivityListItem = styled.li`
   width : 100%;
 
   &::marker {
-    color: ${labelColors.blue};
+    color: ${FilunColors.lightBlue};
   }
 `;
 
@@ -125,6 +125,7 @@ const FilunActivityInfo = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 1em 1.5vw;
 `;
 
 const FilunActivityHour = styled.div`
@@ -143,7 +144,8 @@ const LinkStyles = css`
   line-height: 2.5vh;
   font-size: 1vw;
   cursor: pointer;
-  color: ${labelColors.blue};
+  background-color: ${FilunColors.lightBlue};
+  color: white;
   font-weight: 500;
   ${FilunActivityTextFont}
 `;
