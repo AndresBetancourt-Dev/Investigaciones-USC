@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SEO from "../components/SEO";
 import { Card } from "../components/Card";
 import Resolution from "../components/Normatividad/Resolution";
 import PageLayout from "../components/PageLayout/PageLayout";
@@ -37,6 +38,7 @@ const NormatividadCard = styled(Card)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
+  margin-bottom: 1em;
 
   @media (max-width: 500px) {
     grid-template-columns: 1fr;
@@ -54,6 +56,10 @@ const NormatividadCard = styled(Card)`
 const Normatividad = () => {
   return (
     <PageLayout title={"Normatividad"} image={"/images/common/owl.png"}>
+      <SEO
+        title="Normatividad - Dirección General de Investigaciones"
+        description="La Dirección General de Investigaciones en esta página muestras las resoluciones y circulares normativas que han sido publicadas."
+      />
       <NormatividadContainer>
         {normatividad.map((resolution, index) => (
           <NormatividadItem key={index}>
@@ -70,6 +76,7 @@ const Normatividad = () => {
                   key={index}
                   title={resolution.title}
                   description={resolution.description}
+                  url={resolution.url}
                 />
               ))}
             </NormatividadCard>

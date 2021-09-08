@@ -3,6 +3,11 @@ import { Colors, Screen, Shadows } from "../../styles";
 
 /* Styled Components */
 
+const ResolutionLink = styled.a`
+  text-decoration: none;
+  color: ${Colors.blue};
+`;
+
 const ResolutionContainer = styled.div`
   width: 100%;
   height: auto;
@@ -50,7 +55,6 @@ const ResolutionCircle = styled.div`
 `;
 
 const ResolutionTitle = styled.h3`
-  color: ${Colors.blue};
   margin: 0;
   padding: 0;
   font-size: 1.5vw;
@@ -66,13 +70,20 @@ const ResolutionTitle = styled.h3`
 
 /* Functional Component */
 
-const Resolution = ({ title, description }) => {
+const Resolution = ({ title, description, url }) => {
   return (
-    <ResolutionContainer>
-      <ResolutionCircle />
-      <ResolutionTitle>{title}</ResolutionTitle>
-      <p>{description}</p>
-    </ResolutionContainer>
+    <ResolutionLink
+      href={url}
+      target="_blank"
+      title={title}
+      rel="noreferrer noopener"
+    >
+      <ResolutionContainer>
+        <ResolutionCircle />
+        <ResolutionTitle>{title}</ResolutionTitle>
+        <p>{description}</p>
+      </ResolutionContainer>
+    </ResolutionLink>
   );
 };
 

@@ -112,7 +112,7 @@ const TabItemImage = styled.img`
   }
 `;
 
-const TabItemTitle = styled.h3`
+const TabItemTitle = styled.h2`
   width: 80%;
   text-align: center;
   font-size: 1.5vw;
@@ -161,7 +161,7 @@ const Tabs = ({ sections = [{}] }) => {
                   key={title}
                   onClick={(e) => handleClick(e, title)}
                 >
-                  <TabItemImage src={image} />
+                  <TabItemImage src={image} alt={title} title={title} />
                   <TabItemTitle>{title}</TabItemTitle>
                 </TabItem>
               );
