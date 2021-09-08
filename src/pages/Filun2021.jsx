@@ -13,7 +13,9 @@ import { Screen } from "../styles";
 
 const FilunColors = {
   lightPink: "#d9a2b4",
+  pink: "#c675a7",
   whiten: "#d1c4c6",
+  purple: "#7068bb",
 };
 
 const FilunContainer = styled.section`
@@ -31,6 +33,11 @@ const FilunHero = styled.section`
   background-image: url("/images/filun2021/Fondo.png");
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (${Screen.tablet}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const FilunHeroColumn = styled(animated.div)`
@@ -49,6 +56,11 @@ const FilunHeroImage = styled.img`
 
   width: 50vw;
   height: 50vw;
+
+  @media (${Screen.tablet}) {
+    width: 70vw;
+    height: 70vw;
+  }
 `;
 
 const FilunVideosContainer = styled.section`
@@ -57,6 +69,7 @@ const FilunVideosContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: linear-gradient(
     to bottom,
     ${FilunColors.whiten},
@@ -69,9 +82,52 @@ const FilunVideos = styled.section`
   width: 100%;
   height: auto;
   padding: 1.5vw;
+  padding-left: 5vw;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
 
-  @media (${Screen.tabletXL}) {
+  overflow-x: scroll;
+
+  @media (${Screen.mobile}) {
     flex-wrap: wrap;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding: 2vw 0.5vw;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1vw;
+    border: none;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      45deg,
+      ${FilunColors.purple},
+      ${FilunColors.pink},
+      ${FilunColors.lightPink}
+    );
+    transition: 0.45s ease-in;
+    border-radius: 1em;
+    box-shadow: 2px 2px 40px ${FilunColors.lightPink};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    transition: 0.45s ease-in;
+    background: linear-gradient(
+      270deg,
+      ${FilunColors.purple},
+      ${FilunColors.pink},
+      ${FilunColors.lightPink}
+    );
   }
 `;
 
@@ -80,18 +136,32 @@ const FilunTitle = styled.h3`
   font-weight: bold;
   font-size: 3.5vw;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-`;
 
-const FilunVideo = styled(ReactPlayer)`
-  min-width: 300px;
-  width: 30vw !important;
-
-  @media (${Screen.tabletXL}) {
-    width: 50% !important;
+  @media (${Screen.tablet}) {
+    font-size: 6.5vw;
   }
 
   @media (${Screen.mobile}) {
-    width: 100% !important;
+    font-size: 7.5vw;
+  }
+`;
+
+const FilunVideo = styled(ReactPlayer)`
+  width: 100%;
+
+  & span {
+    margin: 0 0.5vw;
+  }
+
+  & iframe {
+    border-radius: 1em;
+    width: 35vw;
+  }
+
+  @media (${Screen.mobile}) {
+    & span {
+      margin: 1vw 0;
+    }
   }
 `;
 
@@ -99,7 +169,24 @@ const FilunActivities = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    25deg,
+    ${FilunColors.purple},
+    ${FilunColors.pink},
+    ${FilunColors.lightPink},
+    ${FilunColors.lightPink}
+  );
+`;
+
+const FilunDay = styled.div`
+    width : 100%;
+    height : auto;
+    background : white;
+    padding 1.5vw;
 `;
 
 const Filun2021 = () => {
@@ -138,12 +225,14 @@ const Filun2021 = () => {
         <FilunTitle>Videos</FilunTitle>
         <FilunVideos>
           {videos.map((video) => (
-            <FilunVideo url={video} width="40vw" height="90%" key={video} />
+            <FilunVideo url={video} width="90vw" height="90%" key={video} />
           ))}
         </FilunVideos>
       </FilunVideosContainer>
-
-      <FilunActivities></FilunActivities>
+      <FilunActivities>
+        <FilunTitle>Cronograma</FilunTitle>
+        <FilunDay></FilunDay>
+      </FilunActivities>
     </FilunContainer>
   );
 };
