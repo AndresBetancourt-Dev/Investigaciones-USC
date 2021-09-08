@@ -75,7 +75,7 @@ const RequestsList = () => {
           {requestsContent[section].map(({ title, url }) => {
             return (
               <SolicitudesItem key={title}>
-                <a href={url} target="_blank" rel="noreferrer">
+                <a href={url} target="_blank" rel="noreferrer noopener">
                   {title}
                 </a>
               </SolicitudesItem>
