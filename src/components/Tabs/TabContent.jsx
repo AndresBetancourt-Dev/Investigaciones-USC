@@ -55,7 +55,11 @@ const TabContent = ({ content, type }) => {
           {content.map((item) =>
             item.url ? (
               <TabContentListItem key={item.title}>
-                <TabContentLink to={{ pathname: item.url }} target="_blank">
+                <TabContentLink
+                  to={{ pathname: item.url }}
+                  target="_blank"
+                  rel="noopener"
+                >
                   {item.title}
                 </TabContentLink>
                 {item.child ? (

@@ -49,14 +49,17 @@ HomeSection.defaultProps = {
 const Home = () => {
   const homeGrid = [
     {
+      title: "Solicitudes",
       image: "/images/home/USC_Estatua-Entrada.webp",
       url: "/",
     },
     {
+      title: "Oficina de Transferencia de Resultados de Investigaciones",
       image: "/images/home/USC_Bloque-3.webp",
       url: "/",
     },
     {
+      title: "Editorial",
       image: "/images/home/USC_Night.webp",
       url: "/",
     },
@@ -129,9 +132,14 @@ const Home = () => {
             key={i}
             hovereable
           >
-            <Link to={homeColumn.url}>
+            <Link
+              to={homeColumn.url}
+              aria-label={homeColumn.title}
+              title={homeColumn.title}
+            >
               <CardImageTop
                 src={homeColumn.image}
+                alt={homeColumn.title}
                 rounded
                 elementHeight={"100%"}
               ></CardImageTop>

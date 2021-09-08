@@ -6,7 +6,6 @@ import DirectorCard from "../components/DirectorCard";
 
 import SEO from "../components/SEO";
 import { MAIN_URL } from "../constants";
-// import { disableHeader, disableFooter } from "../utils";
 
 import { LayoutContext } from "../context/LayoutContext";
 
@@ -102,7 +101,7 @@ const OldHome = () => {
               key={title}
               href={link}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               type={"normal"}
             >
               {title}
@@ -113,7 +112,7 @@ const OldHome = () => {
           <Button
             href={`${MAIN_URL}/solicitudes`}
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener"
             type={"normal"}
           >
             Solicitudes
@@ -121,7 +120,7 @@ const OldHome = () => {
           <Button
             href={`${MAIN_URL}/formatos`}
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener"
             type={"normal"}
           >
             Lista de Formatos
@@ -129,7 +128,7 @@ const OldHome = () => {
           <Button
             href="https://convocatoriasdgi.usc.edu.co/login"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener"
             type={"normal"}
           >
             Sistema de Investigación

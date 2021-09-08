@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { FaFacebookSquare as Facebook } from "react-icons/fa";
+import {
+  FaFacebookSquare as Facebook,
+  FaTwitter,
+  FaTwitterSquare,
+  FaYoutube,
+  FaInstagram,
+} from "react-icons/fa";
 
 import USC_LOGO from "../assets/images/usc-owl-logo.png";
 import { Colors, Screen, Shadows } from "../styles";
@@ -68,9 +74,12 @@ const FooterMenuContainer = styled.div`
   padding: 0.5em 1em;
 `;
 
-const FooterMenuTitle = styled.h2`
+const FooterMenuTitle = styled.p`
   text-align: center;
   font-size: 2vw;
+  margin: 0;
+  font-weight: bold;
+  margin-bottom: 2.5vh;
 
   @media (${Screen.laptop}) {
     font-size: 2.5vw;
@@ -177,28 +186,28 @@ const directions = [
 const socialNetworks = [
   {
     title: "Facebook",
-    url: "",
+    url: "https://www.facebook.com/publicaUSC",
     Icon: Facebook,
   },
   {
-    title: "Twitter",
-    url: "",
-    Icon: Facebook,
+    title: "Twitter DGI",
+    url: "https://twitter.com/DGI_USC",
+    Icon: FaTwitter,
+  },
+  {
+    title: "Twitter Editorial",
+    url: "https://twitter.com/Editorial_USC",
+    Icon: FaTwitterSquare,
   },
   {
     title: "Youtube",
-    url: "",
-    Icon: Facebook,
+    url: "https://www.youtube.com/channel/UCKbbFP9WUzLtyzWr4rJishw",
+    Icon: FaYoutube,
   },
   {
     title: "Instagram",
-    url: "",
-    Icon: Facebook,
-  },
-  {
-    title: "OJS",
-    url: "",
-    Icon: Facebook,
+    url: "https://www.instagram.com/editorial_usc/",
+    Icon: FaInstagram,
   },
 ];
 
@@ -213,7 +222,7 @@ const FooterSocial = () => {
             href={url}
             target="_blank"
             title={title}
-            rel="noreferrer"
+            rel="noreferrer noopener"
             key={title}
           >
             <Icon />

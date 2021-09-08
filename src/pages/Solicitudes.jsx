@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { requestsContent, requestsImages } from "../data/requests/requests";
 import PageLayout from "../components/PageLayout/PageLayout";
+import SEO from "../components/SEO";
 import { Tabs } from "../components/Tabs";
 
 /* Styled Components */
@@ -56,6 +57,10 @@ const Solicitudes = () => {
 
   return (
     <PageLayout title={"Solicitudes"} image={"/images/common/owl.png"}>
+      <SEO
+        title="Solicitudes - Dirección General de Investigaciones"
+        description="La Dirección General de Investigaciones ha defindo este espacio para realizar solicitudes en los diferentes proyectos, generación de conocimiento, solicitud de constancias, avales y para la participación en las diversas convocatorias."
+      />
       <FlexSolicitudes>
         <Tabs sections={sections} />
       </FlexSolicitudes>

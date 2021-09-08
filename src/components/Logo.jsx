@@ -21,7 +21,7 @@ const Logo = ({ logo, url, title }) => {
     <a
       href={url || "https://investigaciones.usc.edu.co/"}
       target="_blank"
-      rel="noreferrer"
+      rel="noreferrer noopener"
       style={{ zIndex: 200 }}
     >
       <ImageLogo

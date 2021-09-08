@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import PageLayout from "../components/PageLayout/PageLayout";
 import Image from "../assets/images/stock/USC-Fountain.png";
+import SEO from "../components/SEO";
 import { Button } from "../components/Button";
 import { Colors, Screen } from "../styles";
 
@@ -75,6 +76,10 @@ const NotFound = ({ redirect, message, type }) => {
     default:
       return (
         <PageLayout elementHeight="15vh">
+          <SEO
+            title="Página No Encontrada - Dirección General de Investigaciones"
+            description="La Dirección General de Investigaciones ha defindo este espacio para realizar solicitudes en los diferentes proyectos, generación de conocimiento, solicitud de constancias, avales y para la participación en las diversas convocatorias."
+          />
           <NotFoundContainer
             redirect={redirect}
             message={message}
