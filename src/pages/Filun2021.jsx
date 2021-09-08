@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { useSpring, animated } from "@react-spring/web";
 import styled from "styled-components";
 import { Screen } from "../styles";
-import { schedule } from "../data/filun/filun";
+import { FilunColors, schedule } from "../data/filun";
 import FilunDay from "../components/Filun/FilunDay";
 
 // const pages = [
@@ -12,13 +12,6 @@ import FilunDay from "../components/Filun/FilunDay";
 //   "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241288009_1249618978842000_5629747802065809435_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=730e14&_nc_ohc=dUxfHhqlbgsAX-nWW01&_nc_ht=scontent.fclo7-1.fna&oh=a3525d253dce4762039862a3a4e70a22&oe=61390692",
 //   "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241274763_1249619038841994_4077938623280102292_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_ohc=JQCBqcOwhVgAX_jUJyF&_nc_ht=scontent.fclo7-1.fna&oh=f70c05f9e4a8a9d7b6a32477ca314bfd&oe=613A1DF2",
 // ];
-
-const FilunColors = {
-  lightPink: "#d9a2b4",
-  pink: "#c675a7",
-  whiten: "#d1c4c6",
-  purple: "#7068bb",
-};
 
 const FilunContainer = styled.section`
   width: 100%;
