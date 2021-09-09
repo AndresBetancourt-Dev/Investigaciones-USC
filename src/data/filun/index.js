@@ -191,7 +191,7 @@ export const schedule = [
       {
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades",
+        title: "Presentación de novedades I",
         description: [
           "El feminismo, el género y la profesionalización del trabajo social en Colombia (1936-2004) (Universidad Nacional de Colombia).",
           "El futuro es sin género Historias trans de Colombia, Chile y Argentina (Universidad de los Andes).",
@@ -258,7 +258,7 @@ export const schedule = [
       {
         label: "Evento cultural",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades",
+        title: "Presentación de novedades II",
         description:
           "Show en vivo del grupo rock USC a cargo de Bienestar Universitario USC, Presentado de manera presencial y virtual en la Universidad Santiago de Cali. Lugar: Plazoleta de los Sabios.",
         startHour: "06:00 p.m",
@@ -317,7 +317,7 @@ export const schedule = [
       {
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades",
+        title: "Presentación de novedades III",
         description: [
           "Sexualidad y relaciones contemporáneas (Universidad de la Costa).",
           "Filiación en la gestación de vida humana por sustitución de vientre (Universidad del Tolima).",
@@ -448,7 +448,7 @@ export const schedule = [
       {
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades",
+        title: "Presentación de novedades IV",
         description: [
           "Mujeres, universidad y equidad de género: Aproximación desde algunas instituciones de educación superior en Pasto, Nariño (Universidad Mariana).",
           "La mujer migrante en Colombia: análisis de sus derechos humanos desde el contexto regional, 2014-2018 (Universidad del Rosario).",
@@ -736,4 +736,11 @@ export const schedule = [
       },
     ],
   },
+];
+
+export const pages = [
+  "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241258547_1249618785508686_1056617974919817084_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_ohc=VVYvZMowdBcAX8PiV3G&_nc_ht=scontent.fclo7-1.fna&oh=ab22847379156148a0ace5e0fbb3a2ad&oe=6139D5FC",
+  "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241260095_1249618888842009_5607415227835882923_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_ohc=ciD2Mt8NiRoAX_TbMJ3&_nc_ht=scontent.fclo7-1.fna&oh=ae2f2b2db3bad01c195ac7e130075151&oe=6138AD02",
+  "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241288009_1249618978842000_5629747802065809435_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=730e14&_nc_ohc=dUxfHhqlbgsAX-nWW01&_nc_ht=scontent.fclo7-1.fna&oh=a3525d253dce4762039862a3a4e70a22&oe=61390692",
+  "https://scontent.fclo7-1.fna.fbcdn.net/v/t39.30808-6/241274763_1249619038841994_4077938623280102292_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_ohc=JQCBqcOwhVgAX_jUJyF&_nc_ht=scontent.fclo7-1.fna&oh=f70c05f9e4a8a9d7b6a32477ca314bfd&oe=613A1DF2",
 ];

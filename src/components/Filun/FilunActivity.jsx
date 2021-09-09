@@ -90,9 +90,6 @@ const FilunActivityDescription = styled.div`
 
 const FilunActivityTextFont = `
   font-size: 1vw;
-  @media (${Screen.laptop}) {
-    font-size: 1.25vw;
-  }
 
   @media (${Screen.tabletXL}) {
     font-size: 2.5vw;
@@ -135,19 +132,48 @@ const FilunActivityHour = styled.div`
 const LinkStyles = css`
   box-shadow: ${Shadows.light};
   text-decoration: none;
-  border-radius: 10px;
-  padding: 1vw;
+  border-radius: 5px;
+  padding: 0.5em;
   text-align: center;
   display: flex;
   align-content: center;
   height: auto;
   line-height: 2.5vh;
-  font-size: 1vw;
   cursor: pointer;
   background-color: ${FilunColors.lightBlue};
   color: white;
   font-weight: 500;
-  ${FilunActivityTextFont}
+
+  font-size: 1vw;
+
+  & svg {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+
+  @media (${Screen.laptopXL}) {
+    & svg {
+      width: 2vw;
+      height: 2vw;
+    }
+  }
+
+  @media (${Screen.tabletXL}) {
+    font-size: 2.5vw;
+    & svg {
+      width: 4vw;
+      height: 4vw;
+    }
+  }
+
+  @media (${Screen.mobile}) {
+    font-size: 3.5vw;
+
+    & svg {
+      width: 5vw;
+      height: 5vw;
+    }
+  }
 `;
 const FilunActivityMeet = styled.a`
   ${LinkStyles}
@@ -207,6 +233,7 @@ const FilunActivity = ({ activity }) => {
             href={externalUrl}
             target="_blank"
             rel="noreferrer noopener"
+            aria-label={title}
           >
             <GiWorld size={30} />
           </FilunActivityExternal>
