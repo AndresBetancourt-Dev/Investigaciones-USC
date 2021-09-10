@@ -67,10 +67,10 @@ export const schedule = [
           "Presentación y palabras a cargo del Dr. Hilbert Blanco (Junta Directiva de la Región Suroccidental).",
           "José Julián Serrano (Director Editorial de la Universidad Autónoma de Occidente).",
           "Dr. Edward Ordóñez (Editor en jefe de la Universidad Santiago de Cali).",
-          "Dra. Florence Thomas (Psicóloga, columnista y escritora).",
+          "Helen García (Activista y líder Transgénero).",
         ],
         startHour: "11:00 a.m",
-        endHour: "12 m",
+        endHour: "12:00 m",
         meeting: "https://www.youtube.com/c/RedesASEUC",
         externalUrl: "https://unilibros.co/",
       },
@@ -122,9 +122,9 @@ export const schedule = [
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
         title: "Entrevista",
-        subtitle: "Dra. Brigitte Baptiste",
+        subtitle: "Clemencia Rueda Moreno",
         description:
-          "Entrevista a la Dra. Brigitte Baptiste, evento multiformato brindado por la Asociación de Editoriales Universitarias de Colombia (Aseuc).",
+          "Entrevista a Clemencia Rueda Moreno (Directora Fundación CEPECS), en el evento multiformato brinda- do por la Asociación de Editoriales Universitarias de Colombia (Aseuc).",
         startHour: "05:00 p.m",
         endHour: "06:00 p.m",
         meeting: "https://www.youtube.com/c/RedesASEUC",
@@ -258,7 +258,7 @@ export const schedule = [
       {
         label: "Evento cultural",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades II",
+        title: "Rock en la Feria",
         description:
           "Show en vivo del grupo rock USC a cargo de Bienestar Universitario USC, Presentado de manera presencial y virtual en la Universidad Santiago de Cali. Lugar: Plazoleta de los Sabios.",
         startHour: "06:00 p.m",
@@ -317,7 +317,7 @@ export const schedule = [
       {
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades III",
+        title: "Presentación de novedades II",
         description: [
           "Sexualidad y relaciones contemporáneas (Universidad de la Costa).",
           "Filiación en la gestación de vida humana por sustitución de vientre (Universidad del Tolima).",
@@ -416,7 +416,6 @@ export const schedule = [
         label: "Lectura en voz alta",
         labelColor: FilunColors.aquamarine,
         title: "El librero de la librería Expresión Viva recomienda autoras",
-        subtitle: "John Jairo León Muñoz",
         description:
           "Jonathan Valencia conversará con Betina Barrios Ayala, y presenta el catálogo de la librería Expresión Viva sobre autores regionales, nacionales e internacionales.",
         startHour: "8:00 a.m",
@@ -436,9 +435,9 @@ export const schedule = [
       },
       {
         label: "Conversatorio",
-        labelColor: FilunColors.lightBlue,
+        labelColor: FilunColors.aquamarine,
         title: "Transformando la sociedad a través del libro",
-        subtitle: "Ciencias Sociales",
+        subtitle: "Sandra Patricia Pulido",
         description:
           "La directora de la Feria Internacional del Libro de Bogotá nos cuenta de la labor que tiene en uno de los eventos más importantes de Colombia, en un diálogo entablado con María Fernanda Jaramillo (Universidad Libre) y Ángela Arce (Universidad Santiago de Cali).",
         startHour: "10:00 a.m",
@@ -448,7 +447,7 @@ export const schedule = [
       {
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
-        title: "Presentación de novedades IV",
+        title: "Presentación de novedades III",
         description: [
           "Mujeres, universidad y equidad de género: Aproximación desde algunas instituciones de educación superior en Pasto, Nariño (Universidad Mariana).",
           "La mujer migrante en Colombia: análisis de sus derechos humanos desde el contexto regional, 2014-2018 (Universidad del Rosario).",
@@ -560,7 +559,7 @@ export const schedule = [
       {
         label: "Conferencia",
         labelColor: FilunColors.aquamarine,
-        title: "Ética, bioética y equidad de género",
+        title: "Ética y bioética",
         subtitle: "El rol de la mujer en Latinoamérica",
         description:
           "Jennifer Hincapié (Doctora en Filosofía de la Universidad Iberoamericana) nos cuenta anécdotas, experiencia, retos y metas en su labor como Coordinadora del Posgrado en Bioética en Unidad de Posgrado UNAM.",

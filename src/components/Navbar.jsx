@@ -53,22 +53,26 @@ const Navbar = () => {
       title: "Solicitudes",
       url: "/solicitudes",
     },
-    {
-      title: "Convocatorias",
-      url: "/convocatorias",
-      child: [],
-    },
-    {
-      title: "Quiénes Somos",
-      url: "/historia",
-    },
+    // {
+    //   title: "Convocatorias",
+    //   url: "/convocatorias",
+    //   child: [],
+    // },
+    // {
+    //   title: "Quiénes Somos",
+    //   url: "/historia",
+    // },
     {
       title: "Normatividad",
       url: "/normatividad",
     },
+    // {
+    //   title: "OTRI",
+    //   url: "/otri",
+    // },
     {
-      title: "OTRI",
-      url: "/otri",
+      title: "FILUN",
+      url: "/filun2021",
     },
     {
       title: "Editorial",
