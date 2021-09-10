@@ -210,8 +210,8 @@ const FilunActivity = ({ activity }) => {
     <FilunActivityContainer>
       <FilunActivityType labelColor={labelColor}>{label}</FilunActivityType>
       <FilunActivityTitle>{title}</FilunActivityTitle>
-      <FilunActivitySubtitle>{subtitle}</FilunActivitySubtitle>
-      <FilunActivityExample>{example}</FilunActivityExample>
+      {subtitle && <FilunActivitySubtitle>{subtitle}</FilunActivitySubtitle>}
+      {example && <FilunActivityExample>{example}</FilunActivityExample>}
       <FilunActivityDescription>
         {renderDescription(description)}
       </FilunActivityDescription>

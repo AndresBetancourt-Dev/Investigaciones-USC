@@ -124,15 +124,15 @@ const FilunVideos = styled.section`
 const FilunTitle = styled.h2`
   color: white;
   font-weight: bold;
-  font-size: 3.5vw;
+  font-size: 4.5vw;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
-  @media (${Screen.tablet}) {
+  @media (${Screen.tabletXL}) {
     font-size: 6.5vw;
   }
 
   @media (${Screen.mobile}) {
-    font-size: 7.5vw;
+    font-size: 8.5vw;
   }
 `;
 
@@ -231,6 +231,11 @@ const Filun2021 = () => {
       </FilunHero>
       <FilunVideosContainer>
         <FilunTitle>Videos</FilunTitle>
+        <FilunVideo
+          url={"https://www.facebook.com/watch/?v=531637381432347"}
+          width="90vw"
+          height="100%"
+        />
         <FilunVideos>
           {videos.map((video) => (
             <FilunVideo url={video} width="90vw" height="90%" key={video} />
