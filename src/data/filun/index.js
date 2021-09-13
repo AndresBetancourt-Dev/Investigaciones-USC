@@ -177,7 +177,7 @@ export const schedule = [
         meeting: "https://lobby.sar.ruav.edu.co/#/3MRF3F6C1F5H",
       },
       {
-        label: "Conferencia",
+        label: "Conversatorio",
         labelColor: FilunColors.aquamarine,
         title: "El rol de la mujer en la ciencia",
         subtitle:
@@ -413,7 +413,7 @@ export const schedule = [
       "La influencia femenina en el desarrollo de la investigación",
     activities: [
       {
-        label: "Lectura en voz alta",
+        label: "Conversatorio",
         labelColor: FilunColors.aquamarine,
         title: "El librero de la librería Expresión Viva recomienda autoras",
         description:
