@@ -61,8 +61,8 @@ export const schedule = [
       {
         label: "Evento multiformato ASEUC",
         labelColor: FilunColors.fucsia,
-        title: "Acto de inaguración",
-        subtitle: "Palabras de bienvenidad",
+        title: "Acto de inauguración",
+        subtitle: "Palabras de bienvenida",
         description: [
           "Presentación y palabras a cargo del Dr. Hilbert Blanco (Junta Directiva de la Región Suroccidental).",
           "José Julián Serrano (Director Editorial de la Universidad Autónoma de Occidente).",
