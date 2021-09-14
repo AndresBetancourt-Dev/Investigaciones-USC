@@ -291,7 +291,7 @@ export const schedule = [
         title: "Mesa temática:",
         subtitle: "Literatura",
         description: [
-          "ONE-HIT WONDER. Una colección de escritos sobre cultura pop japonesa, música indie y cine culto (Universidad Autónoma de Baja California).",
+          "ONE-HIT WONDER. Una colección de escritos sobre cultura pop japonesa, música indie y cine de culto (Universidad Autónoma de Baja California).",
           "Nación Ruidoson. incorporación estética del imaginario nacional (Universidad Autónoma de Baja California).",
           "Piedras al rojo vivo. Pensamientos, sentencias y aforismos (Universidad Autónoma de Baja California).",
         ],
