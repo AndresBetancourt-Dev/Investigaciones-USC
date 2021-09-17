@@ -722,17 +722,6 @@ export const schedule = [
         endHour: "12:00 m",
         meeting: "https://lobby.sar.ruav.edu.co/#/3MT7LWWYE7ZP",
       },
-      {
-        label: "Evento cultural",
-        labelColor: FilunColors.fucsia,
-        title: "Gatalena tiene un problema",
-        subtitle: "Deisy cuartas",
-        description:
-          "Lectura y dinámica del cuento ilustrado Gatalena tiene un problema.",
-        startHour: "12:00 m",
-        endHour: "01:00 p.m",
-        meeting: "https://lobby.sar.ruav.edu.co/#/3MT7YOCS42R9",
-      },
     ],
   },
 ];
