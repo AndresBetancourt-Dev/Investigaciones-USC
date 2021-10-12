@@ -5,7 +5,7 @@ import { Colors, Screen, Shadows } from "../../styles";
 import slugify from "slugify";
 import NotFound from "../../pages/NotFound";
 import TabContent from "./TabContent";
-import { getUrl, isUndefined } from "../../utils";
+import { isUndefined } from "../../utils";
 
 /* Styled Components */
 
