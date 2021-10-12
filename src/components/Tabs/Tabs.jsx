@@ -5,6 +5,7 @@ import { Colors, Screen, Shadows } from "../../styles";
 import slugify from "slugify";
 import NotFound from "../../pages/NotFound";
 import TabContent from "./TabContent";
+import { getUrl, isUndefined } from "../../utils";
 
 /* Styled Components */
 
@@ -67,7 +68,7 @@ const TabList = styled.ul`
 
 const TabItem = styled.li`
   width: 100%;
-  height: 12.5vh;
+  height: auto;
   background: white;
   cursor: pointer;
   color: ${Colors.blue};
@@ -104,11 +105,7 @@ const TabItemImage = styled.img`
   width: 30%;
 
   @media (${Screen.tabletXL}) {
-    width: 50%;
-  }
-
-  @media (${Screen.mobile}) {
-    width: 100%;
+    width: 30%;
   }
 `;
 
@@ -118,22 +115,26 @@ const TabItemTitle = styled.h2`
   font-size: 1.5vw;
 
   @media (${Screen.mobile}) {
-    display: none;
+    font-size: 2vw;
   }
 `;
 
 /* Functional Component */
 
-const Tabs = ({ sections = [{}] }) => {
-  const [activeTab, setActiveTab] = useState(sections[0].title);
+const Tabs = ({ sections = [], redirect, url }) => {
+  const [activeTab, setActiveTab] = useState({});
   const [found, setFound] = useState(true);
 
   let { route } = useParams();
 
-  const handleClick = (e, title) => {
+  const handleClick = (e, section) => {
     e.preventDefault();
-    setActiveTab(title);
+    setActiveTab(section);
   };
+
+  useEffect(() => {
+    setActiveTab(!isUndefined(sections[0]) ? sections[0] : {});
+  }, [sections]);
 
   useEffect(() => {
     if (route != null) {
@@ -142,36 +143,43 @@ const Tabs = ({ sections = [{}] }) => {
       });
 
       if (section != null) {
-        setActiveTab(section.title);
+        setActiveTab(section);
+        setFound(true);
       } else {
         setFound(false);
       }
     }
   }, [route, sections]);
 
-  if (found) {
+  if (found && sections.length) {
     return (
       <TabContainer>
         <TabBar>
           <TabList>
-            {sections.map(({ image, title }) => {
+            {sections.map((section) => {
               return (
                 <TabItem
-                  className={activeTab === title ? "active" : ""}
-                  key={title}
-                  onClick={(e) => handleClick(e, title)}
+                  className={activeTab.title === section.title ? "active" : ""}
+                  key={section.title}
+                  onClick={(e) => handleClick(e, section)}
                 >
-                  <TabItemImage src={image} alt={title} title={title} />
-                  <TabItemTitle>{title}</TabItemTitle>
+                  <TabItemImage
+                    src={section.image[0]?.url}
+                    alt={section.title}
+                    title={section.title}
+                  />
+                  <TabItemTitle>{section.title}</TabItemTitle>
                 </TabItem>
               );
             })}
           </TabList>
         </TabBar>
         <TabContentContainer>
-          {sections.map(({ content, title }) => {
-            if (activeTab === title) {
-              return <TabContent content={content} key={title} />;
+          {sections.map((section) => {
+            if (activeTab.title === section.title) {
+              return (
+                <TabContent content={section.content} key={section.title} />
+              );
             } else {
               return null;
             }
@@ -180,7 +188,14 @@ const Tabs = ({ sections = [{}] }) => {
       </TabContainer>
     );
   } else {
-    return <NotFound type="fragment" />;
+    return (
+      <NotFound
+        type="fragment"
+        message="Lo sentimos, actualmente no contamos con información para esta página."
+        redirect={redirect}
+        url={url}
+      />
+    );
   }
 };
 

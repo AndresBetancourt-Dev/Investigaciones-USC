@@ -32,7 +32,7 @@ const PageLayoutHeader = styled.section`
 
   @media (${Screen.mobile}) {
     flex-wrap: wrap;
-    height: 10vh;
+    height: 12.5vh;
   }
 
   @media (${Screen.mobileHorizontal}) {
