@@ -7,12 +7,12 @@ import { Colors, Screen } from "../../styles";
 const TabContentList = styled.ul`
   background: white;
   margin: 0;
-  padding: 0;
+  padding: 1.5vw;
+  padding-left: 5vw;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5vw;
   margin-bottom: 1vw;
 `;
 
@@ -44,7 +44,7 @@ const TabContentLink = styled(Link)`
 
 /* Functional Component */
 
-const TabContent = ({ content, type }) => {
+const TabContent = ({ content = [], type = "list" }) => {
   switch (type) {
     case "image":
       break;

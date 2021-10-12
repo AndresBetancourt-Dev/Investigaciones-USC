@@ -58,10 +58,10 @@ const Navbar = () => {
     //   url: "/convocatorias",
     //   child: [],
     // },
-    // {
-    //   title: "Quiénes Somos",
-    //   url: "/historia",
-    // },
+    {
+      title: "Quiénes Somos",
+      url: "/quienes-somos",
+    },
     {
       title: "Normatividad",
       url: "/normatividad",

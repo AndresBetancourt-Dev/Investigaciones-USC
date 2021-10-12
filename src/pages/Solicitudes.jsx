@@ -1,8 +1,11 @@
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { requestsContent, requestsImages } from "../data/requests/requests";
+import Loader from "../components/Loader";
 import PageLayout from "../components/PageLayout/PageLayout";
 import SEO from "../components/SEO";
 import { Tabs } from "../components/Tabs";
+import { LayoutContext } from "../context/LayoutContext";
+import { apiSolicitudes } from "../services/api/solicitudes";
 
 /* Styled Components */
 
@@ -22,38 +25,27 @@ const FlexSolicitudes = styled.section`
 /* Functional Components */
 
 const Solicitudes = () => {
-  const sections = [
-    {
-      image: requestsImages.projects,
-      url: "/solicitudes/projects",
-      title: "Proyectos",
-      content: requestsContent.projects,
-    },
-    {
-      image: requestsImages.knowledgeGeneration,
-      url: "/solicitudes/knowledgeGeneration",
-      title: "Generación de Conocimiento",
-      content: requestsContent.knowledgeGeneration,
-    },
-    {
-      image: requestsImages.calls,
-      url: "/solicitudes/calls",
-      title: "Convocatorias",
-      content: requestsContent.calls,
-    },
-    {
-      image: requestsImages.records,
-      url: "/solicitudes/records",
-      title: "Constancias",
-      content: requestsContent.records,
-    },
-    {
-      image: requestsImages.endorsements,
-      url: "/solicitudes/endorsements",
-      title: "Avales",
-      content: requestsContent.endorsements,
-    },
-  ];
+  const [sections, setSections] = useState([]);
+  const { loading, setLoading } = useContext(LayoutContext);
+
+  useEffect(() => {
+    async function getSolicitudes() {
+      try {
+        setLoading(true);
+        const response = await apiSolicitudes.getAll();
+        if (Array.isArray(response)) {
+          setSections(response);
+        } else {
+          setSections([]);
+        }
+      } catch (error) {
+        setSections([]);
+      }
+      setLoading(false);
+    }
+
+    getSolicitudes();
+  }, [setLoading]);
 
   return (
     <PageLayout title={"Solicitudes"} image={"/images/common/owl.png"}>
@@ -61,8 +53,9 @@ const Solicitudes = () => {
         title="Solicitudes - Dirección General de Investigaciones"
         description="La Dirección General de Investigaciones ha defindo este espacio para realizar solicitudes en los diferentes proyectos, generación de conocimiento, solicitud de constancias, avales y para la participación en las diversas convocatorias."
       />
+
       <FlexSolicitudes>
-        <Tabs sections={sections} />
+        {loading ? <Loader /> : <Tabs sections={sections} redirect={"Home"} />}
       </FlexSolicitudes>
     </PageLayout>
   );

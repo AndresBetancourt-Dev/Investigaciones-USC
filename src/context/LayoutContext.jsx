@@ -3,6 +3,8 @@ import { useState, createContext } from "react";
 export const LayoutContext = createContext();
 
 export const LayoutProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false);
+
   const [headerState, setHeaderState] = useState({
     fixed: true,
     showMenu: true,
@@ -24,6 +26,8 @@ export const LayoutProvider = ({ children }) => {
   return (
     <LayoutContext.Provider
       value={{
+        loading,
+        setLoading,
         headerState,
         setHeaderState,
         footerState,

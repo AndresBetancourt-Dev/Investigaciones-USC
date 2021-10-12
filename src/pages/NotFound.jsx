@@ -45,19 +45,19 @@ const NotFoundTitleContainer = styled.div`
 const NotFoundTitle = styled.h3`
   color: ${Colors.blue};
   text-align: center;
-  font-size: 3.5vw;
+  font-size: 2.5vw;
 `;
 
 /* Functional Components */
 
-const NotFoundContainer = ({ redirect, message }) => {
+const NotFoundContainer = ({ redirect, message, url }) => {
   return (
     <NotFoundContentContainer>
       <NotFoundContent>
         <NotFoundImage src={Image} />
         <NotFoundTitleContainer>
           <NotFoundTitle>{message}</NotFoundTitle>
-          <Button fontWeight={900} to={`/`}>
+          <Button type={"normal"} fontWeight={900} to={url}>
             {redirect}
           </Button>
         </NotFoundTitleContainer>
@@ -66,11 +66,16 @@ const NotFoundContainer = ({ redirect, message }) => {
   );
 };
 
-const NotFound = ({ redirect, message, type }) => {
+const NotFound = ({ redirect, message, type, url }) => {
   switch (type) {
     case "fragment":
       return (
-        <NotFoundContainer redirect={redirect} message={message} type={type} />
+        <NotFoundContainer
+          redirect={redirect}
+          message={message}
+          type={type}
+          url={url}
+        />
       );
     case "page":
     default:
@@ -84,6 +89,7 @@ const NotFound = ({ redirect, message, type }) => {
             redirect={redirect}
             message={message}
             type={type}
+            url={url}
           />
         </PageLayout>
       );
@@ -96,6 +102,7 @@ NotFound.defaultProps = {
   type: "page",
   message: "Lo sentimos, la página no ha sido encontrada.",
   redirect: "Home",
+  url: "/",
 };
 
 export default NotFound;
