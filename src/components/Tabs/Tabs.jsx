@@ -160,7 +160,7 @@ const Tabs = ({ sections = [], redirect, url }) => {
               return (
                 <TabItem
                   className={activeTab.title === section.title ? "active" : ""}
-                  key={section.title}
+                  key={section._id}
                   onClick={(e) => handleClick(e, section)}
                 >
                   <TabItemImage
@@ -177,9 +177,7 @@ const Tabs = ({ sections = [], redirect, url }) => {
         <TabContentContainer>
           {sections.map((section) => {
             if (activeTab.title === section.title) {
-              return (
-                <TabContent content={section.content} key={section.title} />
-              );
+              return <TabContent content={section.content} key={section._id} />;
             } else {
               return null;
             }

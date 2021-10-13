@@ -29,11 +29,38 @@ const Solicitudes = () => {
   const { loading, setLoading } = useContext(LayoutContext);
 
   useEffect(() => {
-    async function getSolicitudes() {
+    const arrangeParents = (response) => {
+      response.forEach((section) => {
+        section.content = section.content.map((listItem, index, collection) => {
+          if (listItem.parent) {
+            const parent = collection.find(
+              (item) => item._id === listItem.parent
+            );
+
+            if (Array.isArray(parent?.child)) {
+              parent.child.push(listItem);
+            } else {
+              parent.child = [];
+              parent.child.push(listItem);
+            }
+            return null;
+          }
+          return {
+            ...listItem,
+          };
+        });
+        section.content = section.content.filter((item) => item !== null);
+      });
+
+      return response;
+    };
+
+    const getSolicitudes = async () => {
       try {
         setLoading(true);
-        const response = await apiSolicitudes.getAll();
+        let response = await apiSolicitudes.getAll();
         if (Array.isArray(response)) {
+          response = arrangeParents(response);
           setSections(response);
         } else {
           setSections([]);
@@ -42,7 +69,7 @@ const Solicitudes = () => {
         setSections([]);
       }
       setLoading(false);
-    }
+    };
 
     getSolicitudes();
   }, [setLoading]);
