@@ -1,50 +1,10 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { Card, CardImageTop } from "../components/Card";
-import MenuBar from "../components/MenuBar";
-import SEO from "../components/SEO";
-import Slider from "../components/Slider/Slider";
-import { SliderHome } from "../data/slider/SliderHome";
-import { Colors } from "../styles";
-
-/* Styled Components */
-
-const HomeContainer = styled.section`
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  background-color: white;
-`;
-
-const HomeSection = styled.section`
-  width: ${(props) => props.elementWidth};
-  height: ${(props) => props.height};
-  padding: ${(props) => props.padding};
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: ${(props) => props.elementWrap};
-
-  @media (max-width: 500px) {
-    flex-wrap: ${(props) => props.mobileWrap};
-  }
-`;
-
-const HomeDetailedText = styled.span`
-  color: ${Colors.blue};
-  font-weight: 500;
-`;
-
-HomeSection.defaultProps = {
-  elementWidth: "100%",
-  elementHeight: "100%",
-  elementWrap: "wrap",
-  mobileWrap: "wrap",
-  padding: "1em",
-};
-
-/* Functional Component */
+import { Card, CardImageTop } from "../../components/Card";
+import MenuBar from "../../components/MenuBar";
+import SEO from "../../components/SEO";
+import Slider from "../../components/Slider/Slider";
+import { SliderHome } from "../../data/slider/SliderHome";
+import { HomeContainer, HomeDetailedText, HomeSection } from "./Home.styles";
 
 const Home = () => {
   const homeGrid = [

@@ -7,12 +7,12 @@ import ScrollToTop from "../components/ScrollToTop";
 
 import Convocatorias from "../pages/Convocatorias";
 import Editorial from "../pages/Editorial";
-import Home from "../pages/Home";
-import Normatividad from "../pages/Normatividad";
+import Home from "../pages/Home/";
+import Normatividad from "../pages/Normatividad/";
 import OldHome from "../pages/OldHome";
-import Solicitudes from "../pages/Solicitudes";
-import NotFound from "../pages/NotFound";
-import Filun2021 from "../pages/Filun2021";
+import Solicitudes from "../pages/Solicitudes/";
+import NotFound from "../components/NotFound";
+import Filun2021 from "../pages/Filun/Filun2021";
 import Us from "../pages/QuienesSomos";
 
 /* Functional Component */

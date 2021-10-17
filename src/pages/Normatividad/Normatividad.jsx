@@ -1,60 +1,18 @@
-import styled from "styled-components";
-import SEO from "../components/SEO";
-import { Card } from "../components/Card";
-import Resolution from "../components/Normatividad/Resolution";
-import PageLayout from "../components/PageLayout/PageLayout";
-import { Colors } from "../styles";
+import SEO from "../../components/SEO";
+
+import Resolution from "../../components/Normatividad/Resolution";
+import PageLayout from "../../components/PageLayout/PageLayout";
+
 import { useContext, useEffect, useState } from "react";
-import Loader from "../components/Loader";
-import { LayoutContext } from "../context/LayoutContext";
-import { apiNormatividad } from "../services/api/normatividad";
-
-/* Styled Components */
-
-const NormatividadContainer = styled.section`
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-`;
-
-const NormatividadTitle = styled.h2`
-  font-size: 3vw;
-  color: ${Colors.blue};
-  text-align: center;
-
-  @media (max-width: 500px) {
-    font-size: 5vw;
-  }
-`;
-
-const NormatividadItem = styled.div`
-  width: 100%;
-  height: auto;
-`;
-
-const NormatividadCard = styled(Card)`
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
-  margin-bottom: 1em;
-
-  @media (max-width: 500px) {
-    grid-template-columns: 1fr;
-    width: 90%;
-    margin: 1em;
-  }
-
-  @media (max-height: 450px) {
-    margin: 3em;
-  }
-`;
-
-/* Functional Components */
+import Loader from "../../components/Loader";
+import { LayoutContext } from "../../context/LayoutContext";
+import { apiNormatividad } from "../../services/api/normatividad";
+import {
+  NormatividadCard,
+  NormatividadContainer,
+  NormatividadItem,
+  NormatividadTitle,
+} from "./Normatividad.styles";
 
 const Normatividad = () => {
   const [normatividad, setNormatividad] = useState([]);
@@ -91,9 +49,9 @@ const Normatividad = () => {
         <Loader />
       ) : (
         <NormatividadContainer>
-          {normatividad.map((resolution, index) => (
-            <NormatividadItem key={index}>
-              <NormatividadTitle>{resolution.title}</NormatividadTitle>
+          {normatividad.map((section) => (
+            <NormatividadItem key={section._id}>
+              <NormatividadTitle>{section.title}</NormatividadTitle>
               <NormatividadCard
                 elementWidth={"80%"}
                 rounded
@@ -101,9 +59,9 @@ const Normatividad = () => {
                 boxShadow="light"
                 zIndex={"1"}
               >
-                {resolution.data.map((resolution, index) => (
+                {section.data.map((resolution) => (
                   <Resolution
-                    key={index}
+                    key={resolution._id}
                     title={resolution.title}
                     description={resolution.description}
                     url={resolution.document[0]?.url}

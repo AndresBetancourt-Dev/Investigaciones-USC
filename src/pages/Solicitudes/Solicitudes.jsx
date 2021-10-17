@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import Loader from "../components/Loader";
-import PageLayout from "../components/PageLayout/PageLayout";
-import SEO from "../components/SEO";
-import { Tabs } from "../components/Tabs";
-import { LayoutContext } from "../context/LayoutContext";
-import { apiSolicitudes } from "../services/api/solicitudes";
+import Loader from "../../components/Loader";
+import PageLayout from "../../components/PageLayout/PageLayout";
+import SEO from "../../components/SEO";
+import { Tabs } from "../../components/Tabs";
+import { LayoutContext } from "../../context/LayoutContext";
+import { apiSolicitudes } from "../../services/api/solicitudes";
 
 /* Styled Components */
 

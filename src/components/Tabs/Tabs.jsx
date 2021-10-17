@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Colors, Screen, Shadows } from "../../styles";
 import slugify from "slugify";
-import NotFound from "../../pages/NotFound";
+import NotFound from "../NotFound";
 import TabContent from "./TabContent";
 import { isUndefined } from "../../utils";
 
