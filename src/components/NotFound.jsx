@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import PageLayout from "../components/PageLayout/PageLayout";
+import PageLayout from "./PageLayout/PageLayout";
 import Image from "../assets/images/stock/USC-Fountain.png";
-import SEO from "../components/SEO";
-import { Button } from "../components/Button";
+import SEO from "./SEO";
+import { Button } from "./Button";
 import { Colors, Screen } from "../styles";
 
 /* Styled Components */
