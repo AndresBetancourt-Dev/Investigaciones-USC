@@ -30,29 +30,31 @@ const Solicitudes = () => {
 
   useEffect(() => {
     const arrangeParents = (response) => {
-      response.forEach((section) => {
-        section.content = section.content.reduce((items, current) => {
-          if (current.parent) {
-            const parent = items.findIndex(
-              (item) => item._id === current.parent
+      response = response.map((section) => {
+        section.content = section.content.map((listItem, index, collection) => {
+          if (listItem.parent) {
+            const parent = collection.find(
+              (item) => item._id === listItem.parent
             );
 
-            if (parent === -1) {
-              return [...items, current];
+            if (parent === undefined) {
+              return listItem;
             }
 
-            if (Array.isArray(items[parent].child)) {
-              items[parent].child.push(current);
+            if (Array.isArray(parent?.child)) {
+              parent.child.push(listItem);
             } else {
-              items[parent].child = [];
-              items[parent].child.push(current);
+              parent.child = [];
+              parent.child.push(listItem);
             }
-
-            return [...items];
+            return null;
           }
+          return listItem;
+        });
 
-          return [...items, current];
-        }, []);
+        section.content = section.content.filter((item) => item !== null);
+
+        return section;
       });
 
       return response;

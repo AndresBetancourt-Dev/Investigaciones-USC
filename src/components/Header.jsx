@@ -31,7 +31,7 @@ const NavbarResponsiveMenu = styled.nav`
   display: flex;
   z-index: 100;
   position: absolute;
-  top: ${(props) => (props.visible ? "0" : "-100vh")};
+  top: ${(props) => (props.visible ? "0" : "-200vh")};
   right: 0;
   left: 0;
   bottom: 0;
