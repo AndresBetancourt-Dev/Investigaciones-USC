@@ -8,6 +8,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 const PageLayoutContainer = styled.section`
   width: 100%;
   height: auto;
+  padding-bottom: 1em;
 `;
 
 const PageLayoutHeader = styled.section`
