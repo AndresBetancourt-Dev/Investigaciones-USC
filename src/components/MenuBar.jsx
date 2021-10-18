@@ -71,7 +71,7 @@ const MenuBar = ({ page }) => {
       },
       {
         title: "Nuestras Redes",
-        url: "/",
+        url: "/nuestras-redes",
       },
       {
         title: "Nuestras Cifras",

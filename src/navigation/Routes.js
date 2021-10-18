@@ -14,6 +14,7 @@ import Solicitudes from "../pages/Solicitudes/";
 import NotFound from "../components/NotFound";
 import Filun2021 from "../pages/Filun/Filun2021";
 import Us from "../pages/QuienesSomos";
+import Redes from "pages/Redes";
 
 /* Functional Component */
 
@@ -32,6 +33,7 @@ const Routes = () => {
           <Route exact path="/convocatorias" component={Convocatorias} />
           <Route exact path="/filun2021" component={Filun2021} />
           <Route exact path="/quienes-somos" component={Us} />
+          <Route exact path="/nuestras-redes" component={Redes} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
