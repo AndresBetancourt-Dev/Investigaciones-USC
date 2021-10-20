@@ -15,6 +15,7 @@ import NotFound from "../components/NotFound";
 import Filun2021 from "../pages/Filun/Filun2021";
 import Us from "../pages/QuienesSomos";
 import Redes from "pages/Redes";
+import Formatos from "pages/Formatos/";
 
 /* Functional Component */
 
@@ -34,6 +35,7 @@ const Routes = () => {
           <Route exact path="/filun2021" component={Filun2021} />
           <Route exact path="/quienes-somos" component={Us} />
           <Route exact path="/nuestras-redes" component={Redes} />
+          <Route exact path="/formatos" component={Formatos} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
