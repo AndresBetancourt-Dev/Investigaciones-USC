@@ -10,6 +10,7 @@ export const Colors = {
   },
   gold: "#ac9047",
   goldYellow: "#e8d552",
+  gray: "#666666",
 };
 
 export const Shadows = {

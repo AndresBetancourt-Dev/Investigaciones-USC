@@ -1,4 +1,5 @@
 export function lineBreak(text, Component) {
+  if (!text) return text;
   text = text.split("\n").map((item, i) =>
     Component !== undefined ? (
       <Component key={i}>
@@ -33,4 +34,8 @@ export function getEndpointByEnviroment() {
     default:
       return process.env.REACT_APP_ENDPOINT_DEVELOPMENT;
   }
+}
+
+export function getFileExtension(file) {
+  return file.split(".").pop();
 }
