@@ -18,8 +18,11 @@ const PageLayoutHeader = styled.section`
     switch (props.type) {
       case "image":
         return `url('${props.background}');
-  background-size : 100% 100%;
-  background-repeat : no-repeat;`;
+  background-size : cover;
+  background-repeat : no-repeat;
+  background-position: center;
+  height : 30vh;
+  `;
       case "color":
       default:
         return `${Colors.blue}`;
@@ -86,7 +89,14 @@ PageLayoutTitle.defaultProps = {
 
 /* Functional Component */
 
-const PageLayout = ({ background, type, title, elementHeight, children }) => {
+const PageLayout = ({
+  background,
+  type,
+  title,
+  elementHeight,
+  children,
+  theme,
+}) => {
   let history = useHistory();
 
   return (
@@ -99,7 +109,10 @@ const PageLayout = ({ background, type, title, elementHeight, children }) => {
         <PageLayoutTitle>{title}</PageLayoutTitle>
       </PageLayoutHeader>
       <PageLayoutGoBack>
-        <ArrowExit onClick={() => history.goBack()} color={Colors.blue} />
+        <ArrowExit
+          onClick={() => history.goBack()}
+          color={theme === "light" ? Colors.white : Colors.blue}
+        />
       </PageLayoutGoBack>
       {children}
     </PageLayoutContainer>
@@ -111,6 +124,7 @@ const PageLayout = ({ background, type, title, elementHeight, children }) => {
 PageLayout.defaultProps = {
   background: "/images/common/investigaciones-header-page.png",
   type: "color",
+  theme: "normal",
 };
 
 export default PageLayout;
