@@ -11,8 +11,5 @@ export const handleResponse = (response) => {
 };
 
 export const handleError = (error) => {
-  if (error.data) {
-    return error.data;
-  }
-  return error;
+  throw new Error(error);
 };

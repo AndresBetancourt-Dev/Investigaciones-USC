@@ -4,6 +4,7 @@ export const LayoutContext = createContext();
 
 export const LayoutProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
+  const [theme, setTheme] = useState("normal");
 
   const [headerState, setHeaderState] = useState({
     fixed: true,
@@ -33,6 +34,8 @@ export const LayoutProvider = ({ children }) => {
         footerState,
         setFooterState,
         hideHeader,
+        theme,
+        setTheme,
       }}
     >
       {children}
