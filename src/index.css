@@ -49,3 +49,17 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--main-color);
 }
+
+/* Overwrite Global Modal Styles */
+img.__react_modal_image__medium_img,
+img.__react_modal_image__large_img {
+  background: none;
+}
+
+div.__react_modal_image__header {
+  background-color: #014087;
+}
+
+.__react_modal_image__caption {
+  font-weight: bold;
+}
