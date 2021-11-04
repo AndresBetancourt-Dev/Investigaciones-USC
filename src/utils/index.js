@@ -39,3 +39,7 @@ export function getEndpointByEnviroment() {
 export function getFileExtension(file) {
   return file.split(".").pop();
 }
+
+export function deslugify(url) {
+  return url.split("-").join(" ");
+}
