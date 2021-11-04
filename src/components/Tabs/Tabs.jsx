@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { Colors, Screen, Shadows } from "../../styles";
 import slugify from "slugify";
 import NotFound from "../NotFound";
 import TabContent from "./TabContent";
-import { isUndefined } from "../../utils";
 
 /* Styled Components */
 
@@ -15,7 +14,7 @@ const TabContainer = styled.div`
   min-height: 500px;
   background: white;
   display: flex;
-  box-shadow: ${Shadows.normal};
+  box-shadow: ${Shadows.light};
 
   @media (${Screen.tabletXL}) {
     flex-direction: column;
@@ -123,27 +122,48 @@ const TabItemTitle = styled.h2`
 
 const Tabs = ({ sections = [], redirect, url }) => {
   const [activeTab, setActiveTab] = useState({});
-  const [found, setFound] = useState(true);
+  const [found, setFound] = useState(false);
 
   let { route } = useParams();
+  let history = useHistory();
 
   const handleClick = (e, section) => {
     e.preventDefault();
     setActiveTab(section);
+    let pathname = history.location.pathname.split("/");
+    let currentRoute = slugify(section.title, {
+      replacement: "-",
+      lower: true,
+    });
+    if (pathname.length > 2) {
+      pathname.splice(pathname.length - 1, 1, currentRoute);
+    } else {
+      pathname.push(currentRoute);
+    }
+    let nextRoute = pathname.join("/");
+    history.push(nextRoute);
   };
-
-  useEffect(() => {
-    setActiveTab(!isUndefined(sections[0]) ? sections[0] : {});
-  }, [sections]);
 
   useEffect(() => {
     if (route != null) {
       const section = sections.find(({ title }) => {
-        return route === slugify(title, { replacement: "-", lower: true });
+        return (
+          route ===
+          slugify(title, {
+            replacement: "-",
+            lower: true,
+          })
+        );
       });
-
       if (section != null) {
         setActiveTab(section);
+        setFound(true);
+      } else {
+        setFound(false);
+      }
+    } else {
+      if (sections.length >= 1) {
+        setActiveTab(sections[0]);
         setFound(true);
       } else {
         setFound(false);
@@ -151,7 +171,7 @@ const Tabs = ({ sections = [], redirect, url }) => {
     }
   }, [route, sections]);
 
-  if (found && sections.length) {
+  if (found) {
     return (
       <TabContainer>
         <TabBar>

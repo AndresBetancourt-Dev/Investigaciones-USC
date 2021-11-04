@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Colors, Screen } from "../../styles";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 
 /* Styled Components */
 
@@ -54,10 +55,11 @@ const PageLayoutTitle = styled.h1`
   }
 `;
 
-const PageLayoutGoBack = styled.div`
+const PageLayoutNavigation = styled.div`
   position: relative;
   padding-top: 1em;
   padding-left: 2vw;
+  display: flex;
 `;
 
 const ArrowExit = styled(FaArrowAltCircleLeft)`
@@ -108,12 +110,13 @@ const PageLayout = ({
       >
         <PageLayoutTitle>{title}</PageLayoutTitle>
       </PageLayoutHeader>
-      <PageLayoutGoBack>
+      <PageLayoutNavigation>
         <ArrowExit
           onClick={() => history.goBack()}
           color={theme === "light" ? Colors.white : Colors.blue}
         />
-      </PageLayoutGoBack>
+        <Breadcrumbs />
+      </PageLayoutNavigation>
       {children}
     </PageLayoutContainer>
   );

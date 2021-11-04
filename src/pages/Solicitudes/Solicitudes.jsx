@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Loader from "../../components/Loader";
 import PageLayout from "../../components/PageLayout/PageLayout";
@@ -27,6 +27,10 @@ const FlexSolicitudes = styled.section`
 const Solicitudes = () => {
   const [sections, setSections] = useState([]);
   const { loading, setLoading } = useContext(LayoutContext);
+
+  useLayoutEffect(() => {
+    setLoading(true);
+  }, [setLoading]);
 
   useEffect(() => {
     const arrangeParents = (response) => {

@@ -113,7 +113,7 @@ const UsMainContent = ({ theme, us }) => (
 const Us = () => {
   const [us, setUs] = useState(initialUsContent);
 
-  const { loading, setLoading, theme, setTheme } = useContext(LayoutContext);
+  const { loading, setLoading, theme } = useContext(LayoutContext);
 
   useEffect(() => {
     const getNormatividad = async () => {
@@ -130,26 +130,16 @@ const Us = () => {
     getNormatividad();
   }, [setLoading]);
 
-  useEffect(() => {
-    setTheme("light");
-
-    return () => {
-      setTheme("normal");
-    };
-  }, [setTheme]);
-
   return (
-    <UsContainer theme={theme}>
+    <PageLayout theme={theme}>
       {loading ? (
         <Loader />
       ) : (
-        <>
-          <PageLayout theme={theme}>
-            <UsMainContent theme={theme} us={us} />
-          </PageLayout>
-        </>
+        <UsContainer theme={theme}>
+          <UsMainContent theme={theme} us={us} />
+        </UsContainer>
       )}
-    </UsContainer>
+    </PageLayout>
   );
 };
 
