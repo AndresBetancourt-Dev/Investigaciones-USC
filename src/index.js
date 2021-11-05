@@ -4,6 +4,8 @@ import "core-js/es/map";
 import "core-js/es/set";
 import "raf/polyfill";
 import "core-js";
+import "unorm";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
