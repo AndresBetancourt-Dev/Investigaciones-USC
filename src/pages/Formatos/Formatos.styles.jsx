@@ -2,12 +2,16 @@ import styled from "styled-components";
 import { Colors, Screen, Shadows } from "styles";
 
 export const FormatosContainer = styled.section`
-  width: 100%;
+  width: 70%;
   height: auto;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  @media (${Screen.tablet}) {
+    width: 100%;
+  }
 `;
 
 export const FormatoContainer = styled.div`
@@ -37,6 +41,7 @@ export const FormatosWrapper = styled.div`
 export const FormatosSectionTitle = styled.h2`
   color: ${Colors.blue};
   font-size: 2.5vw;
+  text-align: center;
 
   @media (${Screen.tabletXL}) {
     font-size: 1.75vw;

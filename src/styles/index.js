@@ -32,6 +32,7 @@ export const Screen = {
   mobileHorizontal: "max-height: 450px",
   tablet: "max-width: 650px",
   tabletXL: "max-width: 768px",
+  notepad: "max-width : 900px",
   laptop: "max-width: 1050px",
   laptopXL: "max-width: 1250px",
 };

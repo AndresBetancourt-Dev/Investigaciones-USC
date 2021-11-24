@@ -2,61 +2,14 @@ import Loader from "components/Loader";
 import { LayoutContext } from "context/LayoutContext";
 import React, { useContext, useEffect, useState } from "react";
 import { apiQuienesSomos } from "services/api/pages";
-import styled from "styled-components";
-import ModalImage from "react-modal-image";
 import PageLayout from "components/PageLayout/PageLayout";
-import { Colors, Screen } from "styles";
-
-const UsContainer = styled.section`
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: ${(props) =>
-    props.theme === "light" ? Colors.blue : Colors.white};
-`;
-
-const UsSection = styled.section`
-  display: flex;
-  width: 100%;
-  flex-wrap: nowrap;
-  @media (${Screen.tablet}) {
-    flex-wrap: wrap;
-  }
-`;
-
-const UsTitle = styled.h2`
-  text-align: center;
-  color: ${(props) => (props.theme === "light" ? Colors.white : Colors.blue)};
-  padding: 0 1em;
-
-  @media (min-width: 1050px) {
-    font-size: 2.25vw;
-  }
-`;
-
-const UsText = styled.span`
-  display: flex;
-  padding: 2em;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 500;
-
-  color: ${(props) => (props.theme === "light" ? Colors.white : Colors.blue)};
-  @media (${Screen.tablet}) {
-    width: 100%;
-  }
-
-  @media (min-width: 1050px) {
-    font-size: 1.25vw;
-  }
-`;
-
-const UsImage = styled(ModalImage)`
-  width: 100%;
-`;
+import {
+  UsTitle,
+  UsSection,
+  UsText,
+  UsImage,
+  UsContainer,
+} from "./QuienesSomos.styles";
 
 const initialUsContent = {
   header: [],
@@ -67,10 +20,10 @@ const initialUsContent = {
   content: "",
 };
 
-const UsContent = ({ theme, image, text, title }) => (
+const UsContent = ({ theme, image, text, title, inverted }) => (
   <>
     <UsTitle theme={theme}>{title}</UsTitle>
-    <UsSection>
+    <UsSection inverted={inverted}>
       <UsText theme={theme}>{text}</UsText>
       <UsImage
         small={image[0]?.url}
@@ -90,10 +43,11 @@ const UsMainContent = ({ theme, us }) => (
       text={us.organigramaText}
     />
     <UsContent
-      theme={theme}
+      theme={"light"}
       image={us.grupos}
       title={us.gruposTitle}
       text={us.gruposText}
+      inverted
     />
     <UsContent
       theme={theme}
@@ -102,10 +56,11 @@ const UsMainContent = ({ theme, us }) => (
       text={us.fortalecimientoText}
     />
     <UsContent
-      theme={theme}
+      theme={"light"}
       image={us.investigacion}
       title={us.investigacionTitle}
       text={us.investigacionText}
+      inverted
     />
   </>
 );
@@ -131,7 +86,7 @@ const Us = () => {
   }, [setLoading]);
 
   return (
-    <PageLayout theme={theme}>
+    <PageLayout title={"Quiénes Somos"} theme={theme}>
       {loading ? (
         <Loader />
       ) : (
