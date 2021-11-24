@@ -48,10 +48,11 @@ const PageLayoutHeader = styled.section`
 const PageLayoutTitle = styled.h1`
   text-align: center;
   width: 50%;
-  font-size: 6vw;
+  font-size: 5vw;
   color: ${(props) => props.textColor};
   @media (${Screen.mobile}) {
     width: 100%;
+    font-size: 6vw;
   }
 `;
 
