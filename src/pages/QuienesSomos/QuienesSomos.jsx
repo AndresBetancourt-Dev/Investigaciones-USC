@@ -10,6 +10,7 @@ import {
   UsImage,
   UsContainer,
 } from "./QuienesSomos.styles";
+import SEO from "components/SEO";
 
 const initialUsContent = {
   header: [],
@@ -87,6 +88,10 @@ const Us = () => {
 
   return (
     <PageLayout title={"Quiénes Somos"} theme={theme}>
+      <SEO
+        title="Quiénes Somos - Dirección General de Investigaciones"
+        description="La Universidad Santiago de Cali, consciente de su responsabilidad social en el aporte a la sociedad del conocimiento y en la formación integral de profesionales, fomenta la investigación en todo su ámbito y contribuye de esta forma al desarrollo de su entorno regional y nacional."
+      />
       {loading ? (
         <Loader />
       ) : (
