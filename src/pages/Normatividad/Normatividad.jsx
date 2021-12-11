@@ -1,10 +1,10 @@
 import SEO from "../../components/SEO";
 
-import Resolution from "../../components/Normatividad/Resolution";
+import Resolution from "components/Normatividad/Resolution";
 import PageLayout from "../../components/PageLayout/PageLayout";
 
 import { useContext, useEffect, useState } from "react";
-import Loader from "components/Loader";
+import Loader from "components/Loader/Loader";
 import { LayoutContext } from "../../context/LayoutContext";
 import { apiNormatividad } from "../../services/api/normatividad";
 import {

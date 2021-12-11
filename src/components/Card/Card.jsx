@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { Screen, Shadows } from "../styles";
+import { Screen, Shadows } from "styles";
 
-/* Styled Components */
-
-export const Card = styled.div`
+const Card = styled.div`
   background: ${(props) => props.elementBackground};
   padding: ${(props) => props.padding};
   width: ${(props) => props.elementWidth};
@@ -49,8 +47,6 @@ export const CardImageTop = styled.img`
   object-fit: cover;
 `;
 
-/* Default Props */
-
 Card.defaultProps = {
   padding: "1.5em",
   margin: "1em 0px",
@@ -72,3 +68,5 @@ CardImageTop.defaultProps = {
   elementHeight: "80%",
   rounded: false,
 };
+
+export default Card;

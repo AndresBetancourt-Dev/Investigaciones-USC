@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import { Colors, Screen } from "../styles";
-import { lineBreak } from "../utils";
+import { Colors, Screen } from "../../styles";
 
-/* Styled Components */
-
-const Director = styled.div`
+export const Director = styled.div`
   display: grid;
   grid-template-columns: 0.4fr 0.6fr;
   width: 100%;
@@ -16,13 +13,13 @@ const Director = styled.div`
   }
 `;
 
-const DirectorImage = styled.img`
+export const DirectorImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-const DirectorInformation = styled.div`
+export const DirectorInformation = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -31,7 +28,7 @@ const DirectorInformation = styled.div`
   padding: 1.5em;
 `;
 
-const DirectorTitle = styled.h2`
+export const DirectorTitle = styled.h2`
   text-align: center;
   font-size: 2vw;
 
@@ -44,7 +41,7 @@ const DirectorTitle = styled.h2`
   }
 `;
 
-const DirectorSubtitle = styled.h4`
+export const DirectorSubtitle = styled.h4`
   text-align: center;
   font-size: 1.5vw;
 
@@ -57,7 +54,7 @@ const DirectorSubtitle = styled.h4`
   }
 `;
 
-const DirectorContent = styled.div`
+export const DirectorContent = styled.div`
   padding: 1em;
   font-size: 90%;
   font-weight: 300;
@@ -72,7 +69,7 @@ const DirectorContent = styled.div`
   }
 `;
 
-const DirectorSubContent = styled.div`
+export const DirectorSubContent = styled.div`
   padding: 1em;
   font-size: 1em;
   font-weight: 300;
@@ -87,7 +84,7 @@ const DirectorSubContent = styled.div`
   }
 `;
 
-const DirectorContact = styled.div`
+export const DirectorContact = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
@@ -108,37 +105,3 @@ const DirectorContact = styled.div`
     font-weight: 900;
   }
 `;
-
-/* Functional Component */
-
-const DirectorCard = ({
-  image,
-  title,
-  subtitle,
-  content,
-  subcontent,
-  phone,
-  extension,
-  cvlac,
-}) => {
-  return (
-    <Director>
-      <DirectorImage src={image} alt={title} rel="preload"></DirectorImage>
-      <DirectorInformation>
-        <DirectorTitle>{title}</DirectorTitle>
-        <DirectorSubtitle>{subtitle}</DirectorSubtitle>
-        <DirectorContent>{lineBreak(content)}</DirectorContent>
-        <DirectorSubContent>{lineBreak(subcontent)}</DirectorSubContent>
-        <DirectorContact>
-          <a href={cvlac} target="_blank" rel="noreferrer">
-            CvLAC
-          </a>
-          <div>{phone}</div>
-          <div>{extension}</div>
-        </DirectorContact>
-      </DirectorInformation>
-    </Director>
-  );
-};
-
-export default DirectorCard;

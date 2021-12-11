@@ -1,6 +1,6 @@
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Card } from "../components/Card";
+import Card from "components/Card";
 import SolicitudesContainer from "../components/SolicitudesContainer";
 import { requestsContent } from "../data/requests/requests";
 import { Colors } from "../styles";

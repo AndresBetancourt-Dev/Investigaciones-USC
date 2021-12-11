@@ -4,7 +4,7 @@ import { useSpring } from "@react-spring/web";
 
 import SEO from "../../components/SEO";
 import { schedule } from "../../data/filun";
-import FilunDay from "../../components/Filun/FilunDay";
+import FilunDay from "../../components/Filun/FilunDay/FilunDay";
 import {
   FilunActivities,
   FilunActivitiesPDF,

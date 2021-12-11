@@ -1,8 +1,8 @@
 import { useEffect, useContext } from "react";
 import styled from "styled-components";
-import { Button } from "../components/Button";
-import { Card } from "../components/Card";
-import DirectorCard from "../components/DirectorCard";
+import Button from "components/Button";
+import Card from "components/Card";
+import DirectorCard from "components/DirectorCard";
 
 import SEO from "../components/SEO";
 import { MAIN_URL } from "../constants";

@@ -1,20 +1,5 @@
-import USC_LOGO from "../assets/images/usc-white-logo.png";
-import styled from "styled-components";
-import { Screen } from "../styles";
-
-/* Styled Components */
-
-const ImageLogo = styled.img`
-  width: 5vw;
-  height: 5vw;
-  z-index: 200;
-  @media (${Screen.mobile}) {
-    width: 2.5em;
-    height: 2.5em;
-  }
-`;
-
-/* Functional Component */
+import USC_LOGO from "assets/images/usc-white-logo.png";
+import { ImageLogo } from "./Logo.styles";
 
 const Logo = ({ logo, url, title }) => {
   return (

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Card, CardImageTop } from "../../components/Card";
-import MenuBar from "../../components/MenuBar";
+import Card from "components/Card";
+import { CardImageTop } from "../../components/Card/Card";
+import MenuBar from "../../components/MenuBar/MenuBar";
 import SEO from "../../components/SEO";
 import Slider from "../../components/Slider/Slider";
 import { SliderHome } from "../../data/slider/SliderHome";
