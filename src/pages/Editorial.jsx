@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Slider from "../components/Slider/Slider";
 import { SliderEditorial } from "../data/slider/SliderEditorial";
 import { Colors, Degrees } from "../styles";
-import { Card } from "../components/Card";
-import MenuBar from "../components/MenuBar";
+import Card from "components/Card";
+import MenuBar from "../components/MenuBar/MenuBar";
 
 /* Styled Components */
 

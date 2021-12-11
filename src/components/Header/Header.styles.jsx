@@ -1,15 +1,7 @@
-import { useState, useContext } from "react";
 import styled from "styled-components";
-import Logo from "./Logo";
-import { Colors, Screen, Shadows } from "../styles";
-import Navbar from "./Navbar";
-import { ImMenu as Hamburger } from "react-icons/im";
+import { Colors, Screen, Shadows } from "styles";
 
-import { LayoutContext } from "../context/LayoutContext";
-
-/* Styled Components */
-
-const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header`
   width: 100%;
   height: auto;
   background-color: ${(props) =>
@@ -27,7 +19,7 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const NavbarResponsiveMenu = styled.nav`
+export const NavbarResponsiveMenu = styled.nav`
   display: flex;
   z-index: 100;
   position: absolute;
@@ -42,7 +34,7 @@ const NavbarResponsiveMenu = styled.nav`
   background: ${Colors.blue};
 `;
 
-const MenuButton = styled.div`
+export const MenuButton = styled.div`
   width: 5vw;
   height: 5vw;
   background: ${(props) => (props.visible ? Colors.blue : "white")};
@@ -93,37 +85,3 @@ HeaderContainer.defaultProps = {
   background: "transparent",
   fontColor: "white",
 };
-
-/* Functional Component */
-
-const Header = () => {
-  const { headerState, setHeaderState } = useContext(LayoutContext);
-  const [navbarIsActive, setNavbarIsActive] = useState(false);
-
-  const changeNavbarColor = () => setNavbarIsActive(window.scrollY >= 100);
-  const changeVisibleMenu = () =>
-    setHeaderState({ ...headerState, visible: !headerState.visible });
-
-  window.addEventListener("scroll", changeNavbarColor);
-
-  return (
-    <HeaderContainer
-      className={navbarIsActive ? "active" : ""}
-      fixed={headerState.fixed}
-    >
-      <Logo />
-      {headerState.showMenu ? (
-        <MenuButton onClick={changeVisibleMenu} visible={headerState.visible}>
-          <Hamburger
-            className={headerState.visible ? "active" : ""}
-          ></Hamburger>
-        </MenuButton>
-      ) : null}
-      <NavbarResponsiveMenu visible={headerState.visible}>
-        <Navbar />
-      </NavbarResponsiveMenu>
-    </HeaderContainer>
-  );
-};
-
-export default Header;

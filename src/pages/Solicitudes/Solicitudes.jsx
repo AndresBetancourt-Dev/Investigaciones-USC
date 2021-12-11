@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext, useLayoutEffect } from "react";
 import styled from "styled-components";
-import Loader from "../../components/Loader";
+import Loader from "../../components/Loader/Loader";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import SEO from "../../components/SEO";
-import { Tabs } from "../../components/Tabs";
+import Tabs from "components/Tabs";
 import { LayoutContext } from "../../context/LayoutContext";
 import { apiSolicitudes } from "../../services/api/solicitudes";
 

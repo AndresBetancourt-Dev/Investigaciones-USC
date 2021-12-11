@@ -1,2 +1,2 @@
-import { Tabs } from "./Tabs";
-export { Tabs };
+import Tabs from "./Tabs";
+export default Tabs;

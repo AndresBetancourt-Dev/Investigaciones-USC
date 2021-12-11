@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PageLayout from "./PageLayout/PageLayout";
 import Image from "../assets/images/stock/USC-Fountain.png";
 import SEO from "./SEO";
-import { Button } from "./Button";
+import Button from "components/Button";
 import { Colors, Screen } from "../styles";
 
 /* Styled Components */

@@ -1,24 +1,22 @@
-import React from "react";
 import styled, { css } from "styled-components";
-import { FilunColors } from "../../data/filun";
-import { Screen, Shadows } from "../../styles";
-import FilunActivity from "./FilunActivity";
+import { FilunColors } from "data/filun";
+import { Screen, Shadows } from "styles";
 
-const background = css`
+export const background = css`
   background: linear-gradient(45deg, #625dcd, #a57cc2, #11b0de);
 `;
 
-const FilunDayContainer = styled.div`
-    width : 100%;
-    height : auto;
-    background : white;
-    padding 1.5vw;
-    display : flex;
-    gap : 3vw;
-    flex-wrap : wrap;
+export const FilunDayContainer = styled.div`
+  width : 100%;
+  height : auto;
+  background : white;
+  padding 1.5vw;
+  display : flex;
+  gap : 3vw;
+  flex-wrap : wrap;
 `;
 
-const FilunDayHeader = styled.div`
+export const FilunDayHeader = styled.div`
   width: 100%;
   height: auto;
   ${background};
@@ -34,7 +32,7 @@ const FilunDayHeader = styled.div`
   }
 `;
 
-const FilunDayTitle = styled.div`
+export const FilunDayTitle = styled.div`
   width: auto;
   height: auto;
   padding: 1em;
@@ -53,7 +51,7 @@ const FilunDayTitle = styled.div`
   }
 `;
 
-const FilunDayNumber = styled.span`
+export const FilunDayNumber = styled.span`
   color: ${FilunColors.lightBlue};
   width: 100%;
   font-size: 5vw;
@@ -71,7 +69,7 @@ const FilunDayNumber = styled.span`
   }
 `;
 
-const FilunDayDate = styled.div`
+export const FilunDayDate = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -85,7 +83,7 @@ const FilunDayDate = styled.div`
   }
 `;
 
-const FilunDayWeek = styled.span`
+export const FilunDayWeek = styled.span`
   color: ${FilunColors.lightBlue};
 
   font-size: 1.75vw;
@@ -99,7 +97,7 @@ const FilunDayWeek = styled.span`
   }
 `;
 
-const FilunDayMonth = styled.span`
+export const FilunDayMonth = styled.span`
   color: ${FilunColors.lightBlue};
   font-weight: bold;
 
@@ -113,7 +111,7 @@ const FilunDayMonth = styled.span`
   }
 `;
 
-const FilunDaySlogan = styled.div`
+export const FilunDaySlogan = styled.div`
   width: 50%;
   height: 100%;
   font-weight: bold;
@@ -125,7 +123,7 @@ const FilunDaySlogan = styled.div`
   justify-content: center;
 `;
 
-const FilunDaySloganTitle = styled.div`
+export const FilunDaySloganTitle = styled.div`
   font-weight: bold;
   color: white;
 
@@ -139,7 +137,7 @@ const FilunDaySloganTitle = styled.div`
   }
 `;
 
-const FilunDaySloganDescription = styled.div`
+export const FilunDaySloganDescription = styled.div`
   font-weight: normal;
   color: white;
 
@@ -154,37 +152,3 @@ const FilunDaySloganDescription = styled.div`
     justify-content: center;
   }
 `;
-
-const FilunDay = ({ day }) => {
-  const { activities = [] } = day;
-  const { number = "", weekDay = "", month = "" } = day;
-  const { slogan = "", sloganDescription = "" } = day;
-
-  return (
-    <FilunDayContainer>
-      <FilunDayHeader>
-        <FilunDayTitle>
-          <FilunDayNumber>{number}</FilunDayNumber>
-          <FilunDayDate>
-            <FilunDayWeek>{weekDay}</FilunDayWeek>
-            <FilunDayMonth>{month}</FilunDayMonth>
-          </FilunDayDate>
-        </FilunDayTitle>
-        <FilunDaySlogan>
-          <FilunDaySloganTitle>{slogan}</FilunDaySloganTitle>
-          <FilunDaySloganDescription>
-            {sloganDescription}
-          </FilunDaySloganDescription>
-        </FilunDaySlogan>
-      </FilunDayHeader>
-      {activities.map((activity) => (
-        <FilunActivity
-          key={activity.title + activity.subtitle}
-          activity={activity}
-        />
-      ))}
-    </FilunDayContainer>
-  );
-};
-
-export default FilunDay;

@@ -3,7 +3,7 @@ import { Colors } from "../styles";
 import { Link } from "react-router-dom";
 import { requestsContent, requestsImages } from "../data/requests/requests";
 import PageLayout from "../components/PageLayout/PageLayout";
-import { Card } from "../components/Card";
+import Card from "components/Card";
 
 /* Styled Components */
 

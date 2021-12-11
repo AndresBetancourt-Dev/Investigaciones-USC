@@ -1,8 +1,6 @@
-import React from "react";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import { deslugify } from "utils";
-import { BreadcrumbLink } from "./Breadcrumbs.styles";
-import { BreadcrumbsContainer } from "./Breadcrumbs.styles";
+import { BreadcrumbLink, BreadcrumbsContainer } from "./Breadcrumbs.styles";
 
 const Breadcrumbs = () => {
   const breadcrumbs = useBreadcrumbs();

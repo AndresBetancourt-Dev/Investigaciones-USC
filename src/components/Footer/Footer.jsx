@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { useContext } from "react";
 import {
   FaFacebookSquare as Facebook,
   FaTwitter,
@@ -6,158 +6,21 @@ import {
   FaYoutube,
   FaInstagram,
 } from "react-icons/fa";
+import { LayoutContext } from "context/LayoutContext";
+import { lineBreak } from "utils";
+import USC_LOGO from "assets/images/usc-owl-logo.png";
 
-import USC_LOGO from "../assets/images/usc-owl-logo.png";
-import { Colors, Screen, Shadows } from "../styles";
-import { lineBreak } from "../utils";
-import { LayoutContext } from "../context/LayoutContext";
-import { useContext } from "react";
-
-/* Styled Components */
-
-const FooterContainer = styled.footer`
-  width: ${(props) => props.elementWidth};
-  height: ${(props) => props.elementHeight};
-  background: ${(props) => props.elementBackground};
-  display: ${(props) => (!props.visible ? "none;" : "flex")};
-  padding: 2em;
-  gap: 2em;
-  color: white;
-  justify-content: center;
-
-  @media (${Screen.tablet}) {
-    flex-direction: column;
-  }
-`;
-
-const FooterContent = styled.section`
-  width: 67%;
-  display: flex;
-  flex-wrap: wrap;
-  box-shadow: ${Shadows.light};
-
-  & * {
-    width: 50%;
-    height: 50%;
-    padding: 1em;
-  }
-
-  @media (${Screen.tablet}) {
-    width: 100%;
-    & * {
-      width: 100%;
-      height: auto;
-    }
-  }
-`;
-
-const FooterMenu = styled.nav`
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  padding: 1em;
-  box-shadow: ${Shadows.light};
-
-  @media (${Screen.tablet}) {
-    width: 100%;
-  }
-`;
-
-const FooterText = styled.div`
-  width: 100%;
-  padding: 0;
-  text-align: center;
-`;
-
-const FooterMenuContainer = styled.div`
-  padding: 0.5em 1em;
-`;
-
-const FooterMenuTitle = styled.p`
-  text-align: center;
-  font-size: 2vw;
-  margin: 0;
-  font-weight: bold;
-  margin-bottom: 2.5vh;
-
-  @media (${Screen.laptop}) {
-    font-size: 2.5vw;
-  }
-
-  @media (${Screen.tablet}) {
-    font-size: 3vw;
-  }
-
-  @media (${Screen.mobile}) {
-    font-size: 4.5vw;
-  }
-`;
-
-const FooterMenuContent = styled.div`
-  font-size: 1vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  gap: 1em;
-
-  @media (${Screen.laptop}) {
-    font-size: 1.5vw;
-  }
-
-  @media (${Screen.tablet}) {
-    font-size: 2.5vw;
-  }
-
-  @media (${Screen.mobile}) {
-    font-size: 3.5vw;
-  }
-`;
-
-const FooterSocialNetworks = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  gap: 2.5px;
-
-  & svg {
-    color: white;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    width: 2.5vw;
-    height: 2.5vw;
-  }
-
-  @media (${Screen.tablet}) {
-    & svg {
-      width: 5vw;
-      height: 5vw;
-    }
-  }
-`;
-
-const FooterLogo = styled.img`
-  width: 20vw;
-  height: 15vw;
-
-  @media (${Screen.tablet}) {
-    width: 30vw;
-    height: 25vw;
-  }
-`;
-
-/* Default Props */
-
-FooterContainer.defaultProps = {
-  elementWidth: "100%",
-  elementHeight: "auto",
-  elementBackground: Colors.blue,
-};
-
-/* Constant Data */
+import {
+  FooterContainer,
+  FooterContent,
+  FooterMenuContainer,
+  FooterMenu,
+  FooterMenuTitle,
+  FooterMenuContent,
+  FooterText,
+  FooterLogo,
+  FooterSocialNetworks,
+} from "./Footer.styles";
 
 const directions = [
   {
@@ -210,8 +73,6 @@ const socialNetworks = [
     Icon: FaInstagram,
   },
 ];
-
-/* Functional Component */
 
 const FooterSocial = () => {
   return (

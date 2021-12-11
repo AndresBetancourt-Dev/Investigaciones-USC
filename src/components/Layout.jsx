@@ -1,7 +1,5 @@
-import Footer from "./Footer";
-import Header from "./Header";
-
-/* Functional Component */
+import Footer from "components/Footer";
+import Header from "components/Header";
 
 const Layout = ({ children }) => {
   return (

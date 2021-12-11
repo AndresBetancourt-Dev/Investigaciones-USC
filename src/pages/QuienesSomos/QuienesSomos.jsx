@@ -1,4 +1,4 @@
-import Loader from "components/Loader";
+import Loader from "components/Loader/Loader";
 import { LayoutContext } from "context/LayoutContext";
 import React, { useContext, useEffect, useState } from "react";
 import { apiQuienesSomos } from "services/api/pages";

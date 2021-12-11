@@ -66,6 +66,16 @@ export const FormatoImage = styled.img`
   width: 10%;
   max-width: 2.5vw;
   max-height: 2.5vw;
+
+  @media (${Screen.tablet}) {
+    width: 5%;
+    max-width: none;
+    max-height: none;
+  }
+
+  @media (${Screen.mobile}) {
+    width: 6.5%;
+  }
 `;
 
 export const FormatoContent = styled.div`

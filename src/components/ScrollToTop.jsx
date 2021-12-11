@@ -1,8 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { LayoutContext } from "../context/LayoutContext";
-
-/* Functional Component */
+import { LayoutContext } from "context/LayoutContext";
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();

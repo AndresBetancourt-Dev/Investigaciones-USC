@@ -1,14 +1,12 @@
 import styled from "styled-components";
-import { Colors, Screen, Shadows } from "../../styles";
+import { Colors, Screen, Shadows } from "styles";
 
-/* Styled Components */
-
-const ResolutionLink = styled.a`
+export const ResolutionLink = styled.a`
   text-decoration: none;
   color: ${Colors.blue};
 `;
 
-const ResolutionContainer = styled.div`
+export const ResolutionContainer = styled.div`
   width: 100%;
   height: auto;
   padding: 1em;
@@ -26,7 +24,7 @@ const ResolutionContainer = styled.div`
   }
 `;
 
-const ResolutionCircle = styled.div`
+export const ResolutionCircle = styled.div`
   border-radius: 50%;
   background: linear-gradient(to top, ${Colors.gold}, ${Colors.goldYellow});
   display: flex;
@@ -54,7 +52,7 @@ const ResolutionCircle = styled.div`
   }
 `;
 
-const ResolutionTitle = styled.h3`
+export const ResolutionTitle = styled.h3`
   margin: 0;
   padding: 0;
   font-size: 1.5vw;
@@ -67,24 +65,3 @@ const ResolutionTitle = styled.h3`
     font-size: 3.5vw;
   }
 `;
-
-/* Functional Component */
-
-const Resolution = ({ title, description, url }) => {
-  return (
-    <ResolutionLink
-      href={url}
-      target="_blank"
-      title={title}
-      rel="noreferrer noopener"
-    >
-      <ResolutionContainer>
-        <ResolutionCircle />
-        <ResolutionTitle>{title}</ResolutionTitle>
-        <p>{description}</p>
-      </ResolutionContainer>
-    </ResolutionLink>
-  );
-};
-
-export default Resolution;
