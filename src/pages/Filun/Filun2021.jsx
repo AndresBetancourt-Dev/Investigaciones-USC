@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-
 import { useSpring } from "@react-spring/web";
-
-import SEO from "../../components/SEO";
-import { schedule } from "../../data/filun";
-import FilunDay from "../../components/Filun/FilunDay/FilunDay";
+import SEO from "components/SEO";
+import FilunDay from "components/Filun/FilunDay/FilunDay";
+import { schedule } from "data/filun";
 import {
   FilunActivities,
   FilunActivitiesPDF,

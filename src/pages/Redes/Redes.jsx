@@ -1,8 +1,8 @@
-import Loader from "components/Loader/Loader";
-import PageLayout from "components/PageLayout/PageLayout";
-import SEO from "components/SEO";
-import { LayoutContext } from "context/LayoutContext";
 import { useContext, useEffect, useState } from "react";
+import { LayoutContext } from "context/LayoutContext";
+import Loader from "components/Loader";
+import PageLayout from "components/PageLayout";
+import SEO from "components/SEO";
 import { apiRedes } from "services/api/redes";
 import {
   RedesContainer,

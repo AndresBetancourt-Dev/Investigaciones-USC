@@ -1,66 +1,14 @@
-import styled from "styled-components";
-import { Colors } from "../styles";
-import { Link } from "react-router-dom";
-import { requestsContent, requestsImages } from "../data/requests/requests";
-import PageLayout from "../components/PageLayout/PageLayout";
+import PageLayout from "components/PageLayout";
 import Card from "components/Card";
-
-/* Styled Components */
-
-const SolicitudesLayout = styled.section`
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
-  height: 100%;
-`;
-
-const SolicitudesText = styled.div`
-  margin: 0;
-`;
-
-const GridSolicitudes = styled.section`
-  background: ${Colors.blue};
-  display: grid;
-  width: 100%;
-  height: auto;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  justify-items: center;
-  padding: 2em;
-
-  @media (max-width: 500px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const SolicitudesButton = styled(Link)`
-  width: 50%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-`;
-
-const SolicitudesIcon = styled.img`
-  width: 15vw;
-  height: 15vw;
-`;
-
-const SolicitudesTitle = styled.h3`
-  color: white;
-  text-align: center;
-  font-size: 3vw;
-  margin: 0;
-  padding: 1em;
-  text-decoration: none;
-`;
-
-/* Functional Components */
+import { requestsContent, requestsImages } from "data/requests/requests";
+import {
+  SolicitudesLayout,
+  SolicitudesText,
+  GridSolicitudes,
+  SolicitudesButton,
+  SolicitudesIcon,
+  SolicitudesTitle,
+} from "./Solicitudes.styles";
 
 const SolicitudesContainer = ({ children }) => {
   return (
@@ -78,7 +26,7 @@ const SolicitudesContainer = ({ children }) => {
   );
 };
 
-const Solicitudes = () => {
+const OldSolicitudes = () => {
   const sections = [
     {
       image: requestsImages.projects,
@@ -130,4 +78,4 @@ const Solicitudes = () => {
   );
 };
 
-export default Solicitudes;
+export default OldSolicitudes;

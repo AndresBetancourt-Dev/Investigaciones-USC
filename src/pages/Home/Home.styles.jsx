@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../styles";
 
-/* Styled Components */
-
 export const HomeContainer = styled.section`
   width: 100%;
   height: 100%;

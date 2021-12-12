@@ -1,12 +1,10 @@
-import SEO from "../../components/SEO";
-
-import Resolution from "components/Normatividad/Resolution";
-import PageLayout from "../../components/PageLayout/PageLayout";
-
 import { useContext, useEffect, useState } from "react";
-import Loader from "components/Loader/Loader";
-import { LayoutContext } from "../../context/LayoutContext";
-import { apiNormatividad } from "../../services/api/normatividad";
+import { LayoutContext } from "context/LayoutContext";
+import SEO from "components/SEO";
+import Resolution from "components/Normatividad/Resolution";
+import PageLayout from "components/PageLayout";
+import Loader from "components/Loader";
+import { apiNormatividad } from "services/api/normatividad";
 import {
   NormatividadCard,
   NormatividadContainer,

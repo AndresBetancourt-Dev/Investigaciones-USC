@@ -1,28 +1,11 @@
 import { useState, useEffect, useContext, useLayoutEffect } from "react";
-import styled from "styled-components";
-import Loader from "../../components/Loader/Loader";
-import PageLayout from "../../components/PageLayout/PageLayout";
-import SEO from "../../components/SEO";
+import { LayoutContext } from "context/LayoutContext";
+import Loader from "components/Loader";
+import PageLayout from "components/PageLayout";
+import SEO from "components/SEO";
 import Tabs from "components/Tabs";
-import { LayoutContext } from "../../context/LayoutContext";
-import { apiSolicitudes } from "../../services/api/solicitudes";
-
-/* Styled Components */
-
-const FlexSolicitudes = styled.section`
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  padding: 1.5vw;
-
-  @media (max-width: 500px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-/* Functional Components */
+import { apiSolicitudes } from "services/api/solicitudes";
+import { FlexSolicitudes } from "./Solicitudes.styles";
 
 const Solicitudes = () => {
   const [sections, setSections] = useState([]);

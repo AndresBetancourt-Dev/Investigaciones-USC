@@ -1,8 +1,8 @@
-import Routes from "./navigation/Routes";
 import { HelmetProvider } from "react-helmet-async";
-import { LayoutProvider } from "./context/LayoutContext";
+import { LayoutProvider } from "context/LayoutContext";
+import Routes from "navigation/Routes";
 
-function App() {
+const App = () => {
   return (
     <HelmetProvider>
       <LayoutProvider>
@@ -10,6 +10,6 @@ function App() {
       </LayoutProvider>
     </HelmetProvider>
   );
-}
+};
 
 export default App;
