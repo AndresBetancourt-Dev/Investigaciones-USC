@@ -1,9 +1,9 @@
-import { FILE_EXTENSIONS } from "constants/index";
+import { useContext, useEffect, useState } from "react";
+import { LayoutContext } from "context/LayoutContext";
 import Loader from "components/Loader/Loader";
 import PageLayout from "components/PageLayout/PageLayout";
 import SEO from "components/SEO";
-import { LayoutContext } from "context/LayoutContext";
-import { useContext, useEffect, useState } from "react";
+import { FILE_EXTENSIONS } from "constants/index";
 import { apiFormatos } from "services/api/formatos";
 import { getFileExtension, lineBreak } from "utils";
 import {
@@ -16,8 +16,8 @@ import {
   FormatosSectionContainer,
   FormatosSectionTitle,
   FormatosWrapper,
+  FormatoContent,
 } from "./Formatos.styles";
-import { FormatoContent } from "./Formatos.styles";
 
 const FormatoSection = ({ title, child }) => {
   return (

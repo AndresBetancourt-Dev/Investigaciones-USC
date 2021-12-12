@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors, Screen } from "styles";
+
 export const RedesContainer = styled.section`
   width: 75%;
   height: auto;

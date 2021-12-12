@@ -1,67 +1,15 @@
-import styled from "styled-components";
-import Slider from "../components/Slider/Slider";
-import { SliderEditorial } from "../data/slider/SliderEditorial";
-import { Colors, Degrees } from "../styles";
+import Slider from "components/Slider";
 import Card from "components/Card";
-import MenuBar from "../components/MenuBar/MenuBar";
-
-/* Styled Components */
-
-const EditorialContainer = styled.section`
-  width: 100%;
-  height: 100%;
-  background-color: white;
-`;
-
-const EditorialSection = styled.section`
-  width: ${(props) => props.elementWidth};
-  height: ${(props) => props.height};
-  padding: ${(props) => props.padding};
-  background-color: ${(props) => props.elementBackground};
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: ${(props) => props.elementWrap};
-
-  @media (max-width: 500px) {
-    flex-wrap: ${(props) => props.mobileWrap};
-  }
-`;
-
-const EditorialTitle = styled.h2`
-  color: ${(props) => props.fontColor};
-  text-align: center;
-`;
-
-const EditorialText = styled.p`
-  color: ${(props) => props.fontColor};
-`;
-
-const EditorialImage = styled.img`
-  width: 30%;
-  height: 30%;
-`;
-
-/* Default Props */
-
-EditorialSection.defaultProps = {
-  elementWidth: "100%",
-  elementHeight: "100%",
-  elementWrap: "wrap",
-  elementBackground: "white",
-  mobileWrap: "wrap",
-  padding: "1em",
-};
-
-EditorialTitle.defaultProps = {
-  fontColor: Colors.blue,
-};
-
-EditorialTitle.defaultProps = {
-  fontColor: Colors.blue,
-};
-
-/* Functional Components */
+import MenuBar from "components/MenuBar";
+import { Colors, Degrees } from "styles";
+import { SliderEditorial } from "data/slider/SliderEditorial";
+import {
+  EditorialContainer,
+  EditorialText,
+  EditorialSection,
+  EditorialImage,
+  EditorialTitle,
+} from "./Editorial.styles";
 
 const Editorial = () => {
   return (

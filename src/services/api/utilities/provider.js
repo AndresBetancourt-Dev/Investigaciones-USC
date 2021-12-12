@@ -1,6 +1,6 @@
 import axios from "axios";
 import { handleResponse, handleError } from "./response";
-import { getEndpointByEnviroment } from "../../../utils";
+import { getEndpointByEnviroment } from "utils";
 
 const BASE_URL = getEndpointByEnviroment();
 

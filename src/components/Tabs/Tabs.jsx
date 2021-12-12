@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import slugify from "slugify";
-import NotFound from "components/NotFound";
+import NotFound from "components/NotFound/NotFound";
 import TabContent from "./TabContent";
 import {
   TabContainer,

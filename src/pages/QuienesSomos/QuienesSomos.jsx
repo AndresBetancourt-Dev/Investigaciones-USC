@@ -1,8 +1,9 @@
-import Loader from "components/Loader/Loader";
+import { useContext, useEffect, useState } from "react";
 import { LayoutContext } from "context/LayoutContext";
-import React, { useContext, useEffect, useState } from "react";
+import Loader from "components/Loader";
+import SEO from "components/SEO";
+import PageLayout from "components/PageLayout";
 import { apiQuienesSomos } from "services/api/pages";
-import PageLayout from "components/PageLayout/PageLayout";
 import {
   UsTitle,
   UsSection,
@@ -10,7 +11,6 @@ import {
   UsImage,
   UsContainer,
 } from "./QuienesSomos.styles";
-import SEO from "components/SEO";
 
 const initialUsContent = {
   header: [],

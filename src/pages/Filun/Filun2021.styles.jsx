@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { animated } from "@react-spring/web";
-import { Screen } from "../../styles";
-import { FilunColors } from "../../data/filun";
 import ReactPlayer from "react-player";
+import { Screen } from "styles";
+import { FilunColors } from "data/filun";
 
 export const FilunContainer = styled.section`
   width: 100%;

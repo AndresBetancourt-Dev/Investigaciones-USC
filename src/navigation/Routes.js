@@ -1,23 +1,21 @@
 import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Layout from "../components/Layout";
-import ScrollToTop from "../components/ScrollToTop";
+import Layout from "components/Layout";
+import ScrollToTop from "components/ScrollToTop";
 
 /* Pages */
 
-import Convocatorias from "../pages/Convocatorias";
-import Editorial from "../pages/Editorial";
-import Home from "../pages/Home/";
-import Normatividad from "../pages/Normatividad/";
-import OldHome from "../pages/OldHome";
-import Solicitudes from "../pages/Solicitudes/";
-import NotFound from "../components/NotFound";
-import Filun2021 from "../pages/Filun/Filun2021";
-import QuienesSomos from "../pages/QuienesSomos/";
+import Convocatorias from "pages/Convocatorias";
+import Editorial from "pages/Editorial/Editorial";
+import Home from "pages/Home/";
+import Normatividad from "pages/Normatividad/";
+import OldHome from "pages/OldHome";
+import Solicitudes from "pages/Solicitudes/";
+import NotFound from "../components/NotFound/NotFound";
+import Filun2021 from "pages/Filun/Filun2021";
+import QuienesSomos from "pages/QuienesSomos/";
 import Redes from "pages/Redes";
 import Formatos from "pages/Formatos/";
-
-/* Functional Component */
 
 const Routes = () => {
   return (

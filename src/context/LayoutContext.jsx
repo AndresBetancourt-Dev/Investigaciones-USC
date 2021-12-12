@@ -37,6 +37,7 @@ export const LayoutProvider = ({ children }) => {
         theme,
         setTheme,
       }}
+      displayName={"Layout"}
     >
       {children}
     </LayoutContext.Provider>
