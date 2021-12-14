@@ -16,6 +16,28 @@ export const TabContainer = styled.div`
   @media (${Screen.mobile}) {
     min-height: 0;
   }
+
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 1em;
+    background: transparent;
+    box-shadow: ${Shadows.light};
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ebebeb;
+    background: transparent;
+    box-shadow: ${Shadows.light};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${Colors.blue};
+    border-radius: 1.5em;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${Colors.blue};
+  }
 `;
 
 export const TabBar = styled.aside`
@@ -96,7 +118,7 @@ export const TabItem = styled.li`
 export const TabItemImage = styled.img`
   width: 30%;
 
-  @media (${Screen.mobile}) {
+  @media (${Screen.tabletXL}) {
     width: 70%;
   }
 `;
@@ -108,7 +130,7 @@ export const TabItemTitle = styled.h2`
   padding: 0;
   margin: 0;
 
-  @media (${Screen.mobile}) {
+  @media (${Screen.tabletXL}) {
     font-size: 2vw;
   }
 `;

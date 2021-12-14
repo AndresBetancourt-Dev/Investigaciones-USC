@@ -1,13 +1,37 @@
+import { useLocation } from "react-router-dom";
 import {
   TabContentList,
+  TabContentImages,
+  TabContentImageContainer,
+  TabContentImage,
+  TabContentImageTitle,
   TabContentListItem,
   TabContentLink,
 } from "./TabContent.styles";
 
 const TabContent = ({ content = [], type = "list" }) => {
+  const location = useLocation();
   switch (type) {
     case "image":
-      break;
+      return (
+        <TabContentImages>
+          {content.map((item) => (
+            <TabContentLink
+              to={`${location.pathname}/${item.key}`}
+              key={item.key}
+              type={type}
+            >
+              <TabContentImageContainer>
+                {item.image ? (
+                  <TabContentImage src={item.image[0]?.url} />
+                ) : (
+                  <TabContentImageTitle>{item.title}</TabContentImageTitle>
+                )}
+              </TabContentImageContainer>
+            </TabContentLink>
+          ))}
+        </TabContentImages>
+      );
     case "list":
     default:
       return (

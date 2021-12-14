@@ -5,7 +5,7 @@ import ScrollToTop from "components/ScrollToTop";
 
 /* Pages */
 
-import Convocatorias from "pages/Convocatorias";
+import Convocatorias from "pages/Convocatorias/";
 import Editorial from "pages/Editorial/Editorial";
 import Home from "pages/Home/";
 import Normatividad from "pages/Normatividad/";
