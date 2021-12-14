@@ -13,16 +13,14 @@ import {
   TabContentContainer,
 } from "./Tabs.styles";
 
-const Tabs = ({ sections = [], redirect, url }) => {
+const Tabs = ({ sections = [], redirect, url, routing = true, type }) => {
   const [activeTab, setActiveTab] = useState({});
   const [found, setFound] = useState(false);
 
   let { route } = useParams();
   let history = useHistory();
 
-  const handleClick = (e, section) => {
-    e.preventDefault();
-    setActiveTab(section);
+  const changeRoute = (section) => {
     let pathname = history.location.pathname.split("/");
     let currentRoute = slugify(section.title, {
       replacement: "-",
@@ -37,8 +35,16 @@ const Tabs = ({ sections = [], redirect, url }) => {
     history.push(nextRoute);
   };
 
+  const handleClick = (e, section) => {
+    e.preventDefault();
+    setActiveTab(section);
+    if (routing) {
+      changeRoute(section);
+    }
+  };
+
   useEffect(() => {
-    if (route != null) {
+    const validateSectionRoute = () => {
       const section = sections.find(({ title }) => {
         return (
           route ===
@@ -54,15 +60,27 @@ const Tabs = ({ sections = [], redirect, url }) => {
       } else {
         setFound(false);
       }
-    } else {
+    };
+
+    const validateSectionsNoRoute = () => {
       if (sections.length >= 1) {
         setActiveTab(sections[0]);
         setFound(true);
       } else {
         setFound(false);
       }
+    };
+
+    if (routing) {
+      if (route != null) {
+        validateSectionRoute();
+      } else {
+        validateSectionsNoRoute();
+      }
+    } else {
+      validateSectionsNoRoute();
     }
-  }, [route, sections]);
+  }, [route, sections, routing]);
 
   if (found) {
     return (
@@ -76,11 +94,13 @@ const Tabs = ({ sections = [], redirect, url }) => {
                   key={section._id}
                   onClick={(e) => handleClick(e, section)}
                 >
-                  <TabItemImage
-                    src={section.image[0]?.url}
-                    alt={section.title}
-                    title={section.title}
-                  />
+                  {section.image[0]?.url && (
+                    <TabItemImage
+                      src={section.image[0]?.url}
+                      alt={section.title}
+                      title={section.title}
+                    />
+                  )}
                   <TabItemTitle>{section.title}</TabItemTitle>
                 </TabItem>
               );
@@ -90,7 +110,13 @@ const Tabs = ({ sections = [], redirect, url }) => {
         <TabContentContainer>
           {sections.map((section) => {
             if (activeTab.title === section.title) {
-              return <TabContent content={section.content} key={section._id} />;
+              return (
+                <TabContent
+                  content={section.content}
+                  key={section._id}
+                  type={type}
+                />
+              );
             } else {
               return null;
             }

@@ -57,6 +57,7 @@ export const PageLayoutNavigation = styled.div`
   padding-top: 1em;
   padding-left: 2vw;
   display: flex;
+  padding-bottom: 0.5em;
 `;
 
 export const ArrowExit = styled(FaArrowAltCircleLeft)`
