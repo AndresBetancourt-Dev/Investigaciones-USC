@@ -1,10 +1,19 @@
 import styled from "styled-components";
-import { Colors } from "styles";
+import { Colors, Screen } from "styles";
 
 export const EditorialContainer = styled.section`
   width: 100%;
   height: 100%;
   background-color: white;
+`;
+
+export const EditorialHero = styled.img`
+  width: 100%;
+  height: 87.5vh;
+  object-fit: cover;
+  @media (${Screen.mobile}) {
+    height: 50vh;
+  }
 `;
 
 export const EditorialSection = styled.section`

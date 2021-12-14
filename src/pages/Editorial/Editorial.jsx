@@ -1,8 +1,6 @@
-import Slider from "components/Slider";
 import Card from "components/Card";
 import MenuBar from "components/MenuBar";
-import { Colors, Degrees } from "styles";
-import { SliderEditorial } from "data/slider/SliderEditorial";
+import { Colors } from "styles";
 import {
   EditorialContainer,
   EditorialText,
@@ -10,15 +8,20 @@ import {
   EditorialImage,
   EditorialTitle,
 } from "./Editorial.styles";
+import SEO from "components/SEO";
+import { EditorialHero } from "./Editorial.styles";
 
 const Editorial = () => {
   return (
     <EditorialContainer>
-      <Slider
-        slides={SliderEditorial}
-        height={"87.5vh"}
-        sliderOverlay={`linear-gradient(${Degrees.bottomLeft},${Colors.purple.decolored},${Colors.darkBlue.decolored})`}
-      ></Slider>
+      <SEO
+        title="Editorial - Dirección General de Investigaciones"
+        description="La Dirección General de Investigaciones en esta página muestras las resoluciones y circulares normativas que han sido publicadas."
+      />
+      <EditorialHero
+        src="/images/editorial/Editorial-Home.jpg"
+        alt="Editorial Universidad Santiago de Cali"
+      />
       <MenuBar page="Editorial" />
 
       <EditorialSection>

@@ -11,5 +11,4 @@ export const ConvocatoriasContainer = styled.div`
 export const ConvocatoriasSection = styled.section`
   width: 100%;
   height: auto;
-  min-height: 70vh;
 `;

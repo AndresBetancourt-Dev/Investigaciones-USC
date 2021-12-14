@@ -5,6 +5,7 @@ import { Colors, Shadows } from "styles";
 export const Bar = styled.section`
   height: ${(props) => props.elementHeight};
   background: ${(props) => props.elementBackground};
+  width: 100%;
   padding: 1em;
   display: flex;
   justify-content: center;

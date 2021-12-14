@@ -27,23 +27,45 @@ const MenuBar = ({ page }) => {
     Editorial: [
       {
         title: "Libros",
-        url: "/",
+        url: "/editorial",
       },
       {
         title: "Eventos",
-        url: "/",
+        url: "/editorial",
       },
       {
         title: "Redes Sociales",
-        url: "/",
+        url: "/editorial",
       },
       {
         title: "Catálogo",
-        url: "/",
+        url: "/editorial",
       },
       {
         title: "Boletines",
-        url: "/",
+        url: "/editorial",
+      },
+    ],
+    OTRI: [
+      {
+        title: "Quiénes Somos",
+        url: "/otri",
+      },
+      {
+        title: "Equipo",
+        url: "/otri",
+      },
+      {
+        title: "Laboratorio",
+        url: "/otri",
+      },
+      {
+        title: "Portafolio de Servicios de Alta Calidad",
+        url: "/otri",
+      },
+      {
+        title: "Otros Portafolios de Áreas",
+        url: "/otri",
       },
     ],
   };
